@@ -1,7 +1,7 @@
 #Perder grasa
 sexo #hombre o mujer
 fecha_de_nacimiento #ddmmaa
-estatura
+estatura #m
 peso_actual
 ejercicio
 peso_objetivo
