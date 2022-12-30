@@ -7,3 +7,6 @@ ejercicio
 peso_objetivo
 #Mantener peso 
 #Ganar musculo
+x
+x
+x
