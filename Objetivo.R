@@ -1,6 +1,6 @@
 #Perder grasa
 sexo #hombre o mujer
-fecha_de_nacimiento
+fecha_de_nacimiento #ddmmaa
 estatura
 peso_actual
 ejercicio
