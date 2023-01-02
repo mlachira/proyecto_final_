@@ -1,57 +1,42 @@
+#Se hicieron 8 diferentes listas en las que contiene diferentes alimentos (de origen animal, cereales, frutas, verduras, leguminosas, grasas con proteínas, grasas y azúcar)
+#Para las tablas se sacaron los valores de kcal, proteínas, carbohidratos y grasas en 100 gramos de dicho alimento
 
-#Alimentos de origen animal
-getwd()
-alimento_origen_animal <-read.csv("Alimentos_de_origen_animal.csv")
-alimento_origen_animal <-read.table("Alimentos_de_origen_animal.csv", header=TRUE, sep=',')
+#1. Alimentos de origen animal
+#Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Alimentos_de_origen_animal.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
+alimento_origen_animal <-read.table("Alimentos_de_origen_animal.csv", header=TRUE, sep=',', row.names = 1)
 alimento_origen_animal
-#Para ver la lista de alimentos de origen animal
-alimento_origen_animal$Alimentos
 
-#Cereales
-cereales <-read.csv("Cereales.csv")
-cereales <-read.table("Cereales.csv", header=TRUE, sep=',')
+#2. Cereales
+#Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Cereales.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
+cereales <-read.table("Cereales.csv", header=TRUE, sep=',', row.names=1)
 cereales
-#Para ver la lista de cereales
-cereales$Alimentos
 
-#Fruta
-frutas<- read.csv("Fruta.csv")
-frutas<-read.table("Fruta.csv",header=TRUE, sep=',' )
+#3. Fruta
+#Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Fruta.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
+frutas<-read.table("Fruta.csv",header=TRUE, sep=',', row.names = 1 )
 frutas
-#Para ver la lista de frutas 
-frutas$Alimentos
 
-#Verduras
-verduras<- read.csv("Verduras.csv")
-verduras<-read.table("Verduras.csv",header=TRUE, sep=',' )
+#4. Verduras
+#Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Verduras.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
+verduras<-read.table("Verduras.csv",header=TRUE, sep=',', row.names = 1 )
 verduras
-#Para ver la lista de verduras
-verduras$Alimentos
 
-#Leguminosas
-leguminosas<- read.csv("Leguminosas.csv")
-leguminosas<- read.table("Leguminosas.csv",header=TRUE, sep=',')
+#5. Leguminosas
+#Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Leguminosas.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
+leguminosas<- read.table("Leguminosas.csv",header=TRUE, sep=',', row.names = 1)
 leguminosas
-#Para ver la lista de leguminosas
-leguminosas$Alimentos
 
-#Grasas con proteínas
-grasas_con_proteínas<- read.csv("Grasas con proteína.csv")
-grasas_con_proteínas<- read.table("Grasas con proteínas.csv", header = TRUE, sep=',')
+#6. Grasas con proteínas
+#Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Grasas con proteína.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
+grasas_con_proteínas<- read.table("Grasas con proteínas.csv", header = TRUE, sep=',', row.names = 1)
 grasas_con_proteínas
-#Para ver la lista de grasas con proteínas
-grasas_con_proteínas$Alimentos
 
-#Grasas
-grasas<- read.csv("Grasas.csv")
-grasas<- read.table("Grasas.csv", header= TRUE, sep = ',')
+#7. Grasas
+#Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Grasas.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
+grasas<- read.table("Grasas.csv", header= TRUE, sep = ',', row.names = 1)
 grasas
-#Para ver la lista de grasas
-grasas$Alimentos
 
-#Azúcar
-azúcar<- read.csv("Azúcar.csv")
-azúcar<- read.table("Azúcar.csv", header = TRUE, sep = ',')
+#8. Azúcar
+#Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Azúcar.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
+azúcar<- read.table("Azúcar.csv", header = TRUE, sep = ',', row.names = 1)
 azúcar
-#Para ver la lista de azúcar
-azúcar$Alimentos
