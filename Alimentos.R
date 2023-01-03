@@ -41,5 +41,3 @@ grasas
 azúcar<- read.table("Azúcar.csv", header = TRUE, sep = ',', row.names = 1)
 azúcar
 
-
-.....
