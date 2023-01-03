@@ -28,8 +28,8 @@ leguminosas
 
 #6. Grasas con proteínas
 #Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Grasas con proteína.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
-grasas_con_proteínas<- read.table("Grasas con proteína.csv", header = TRUE, sep=',', row.names = 1)
-grasas_con_proteínas
+grasas_con_proteinas<- read.table("Grasas con proteina.csv", header = TRUE, sep=',', row.names = 1)
+grasas_con_proteinas
 
 #7. Grasas
 #Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Grasas.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
@@ -38,6 +38,6 @@ grasas
 
 #8. Azúcar
 #Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Azúcar.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
-azúcar<- read.table("Azúcar.csv", header = TRUE, sep = ',', row.names = 1)
-azúcar
+azucar<- read.table("Azucar.csv", header = TRUE, sep = ',', row.names = 1)
+azucar
 
