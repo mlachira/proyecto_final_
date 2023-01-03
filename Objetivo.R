@@ -1,5 +1,5 @@
 #Perder grasa
-sexo 
+sexo
 fecha_de_nacimiento 
 estatura 
 peso_actual
