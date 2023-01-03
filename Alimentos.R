@@ -1,5 +1,5 @@
 #Se hicieron 8 diferentes listas en las que contiene diferentes alimentos (de origen animal, cereales, frutas, verduras, leguminosas, grasas con proteínas, grasas y azúcar)
-#Para las tablas se sacaron los valores de kcal, proteínas, carbohidratos y grasas en 100 gramos de dicho alimento
+#En las tablas se anotaron el número de kcal, proteínas, carbohidratos y grasas contenidas en 100 gramos de dicho alimento
 
 #1. Alimentos de origen animal
 #Se cargo la tabla de alimentos de origen animal, para esto se uso la función "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Alimentos_de_origen_animal.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
