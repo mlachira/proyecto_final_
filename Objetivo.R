@@ -1,9 +1,8 @@
 #Para calcular las kcal, proteínas, carbohidratos y grasas que se consumen diario se le pide que llene lo que se le pide. 
 #Se recomienda imprimir la base de datos de origen animal para saber cuales alimentos se encuentran en esta y como se deben de escribir.
 alimento_origen_animal
-dias_de_la_semana<-c("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo")
-####FORMA CON IF ELSE####
-cantidad_de_oa<- readline(prompt = "Ingresa el numero de alimentos de origen animal que consumes en el desayuno")
+
+cantidad_de_oa<- readline(prompt = "Ingresa el numero de alimentos de origen animal que consumes en el desayuno: ")
 2
 
 dieta_origen_animal<- function(){
@@ -19,7 +18,7 @@ dieta_origen_animal<- function(){
     kcal_totales_oa1
     return(print(paste("Las kcal totales son", kcal_totales_oa)))
   }else if (cantidad_de_oa==2){
-    alimento_dieta_oa2.1<-readline(prompt = "Ingresa alimento de origen animal 1")
+    alimento_dieta_oa2.1<-readline(prompt = "Ingresa alimento de origen animal 1: ")
     kcal_alimento_dieta_oa2.1<- alimento_origen_animal[alimento_dieta_oa2.1, "kcal"]
     n_kcal_alimento_dieta_oa2.1<-as.numeric(kcal_alimento_dieta_oa2.1)
     class(n_kcal_alimento_dieta_oa2.1)
@@ -41,7 +40,7 @@ dieta_origen_animal<- function(){
     kcal_totales_oa2
     return(print(paste("Las kcal son", kcal_totales_oa2)))
   } else if (cantidad_de_oa==3){
-    alimento_dieta_oa3.1<-readline(prompt = "Ingresa alimento de origen animal 1")
+    alimento_dieta_oa3.1<-readline(prompt = "Ingresa alimento de origen animal 1: ")
     kcal_alimento_dieta_oa3.1<- alimento_origen_animal[alimento_dieta_oa3.1, "kcal"]
     n_kcal_alimento_dieta_oa3.1<-as.numeric(kcal_alimento_dieta_oa3.1)
     class(n_kcal_alimento_dieta_oa3.1)
