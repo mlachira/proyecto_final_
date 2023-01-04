@@ -40,7 +40,10 @@ factor_actividad <- function () {
     respuesta <- 1.725
   } else if (respuesta_1 == "profesional"){
     respuesta <- 1.9
-  }
+  }}
 factor_actividad
+#arriba me marca que hay un "{" que no se ha cerrado y que creo que iria en la linea 43 porque asi se desaparece el error.
+#pero luego si contesto el nivel de act fisica que tengo, me dice que ese "}" sobra
+#¿les aparece asi?
 
 # ---- Formula de calculo de calorias ----
