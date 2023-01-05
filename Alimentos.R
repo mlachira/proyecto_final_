@@ -4,7 +4,7 @@
 #1. Alimentos de origen animal
 #Se cargo la tabla de alimentos de origen animal, para esto se uso la funcion "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Alimentos_de_origen_animal.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
 alimento_origen_animal <-read.table("Alimentos_de_origen_animal.csv", header=TRUE, sep=',', row.names = 1)
-alimento_origen_animal[c("Pulpo","Pescado","Salchicha"),"kcal"]
+alimento_origen_animal
 
 #2. Cereales
 #Se cargo la tabla de cereales, para esto se uso la funcion "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Cereales.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
