@@ -141,6 +141,41 @@ dieta_origen_animal<- function(){
 }
 dieta_origen_animal()
 
+
+#####  #####   #####   #####   #####   #####   #####
+
+#FORMA 1
+#podriamos hacer un data frame, pero creo que solo admite vectores
+matriz_oa <- data.frame(
+  "kcal" = (kcal_totales_oa3), 
+  "Proteínas totales" = (proteina_totales_oa3), 
+  "Carbohidratos" = (carbohidrato_totales_oa3),
+  "Grasas" = (grasas_totales_oa3)
+)
+matriz_oa
+
+
+#FORMA 2
+install.packages("expss")
+library(expss)
+
+mtcars
+fre(kcal_totales_oa3)
+
+
+alimentos_oa <- apply_labels(kcal_totales_oa3,
+                             mpg = "Miles/(US) gallon",
+                             cyl = "Number of cylinders",
+                             disp = "Displacement (cu.in.)",
+                             hp = "Gross horsepower")
+
+#página super util para tablas: https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/
+      
+                             
+#####  #####   #####   #####   #####   #####   #####
+
+
+
 ######### FRUTAS #######
 frutas
 
