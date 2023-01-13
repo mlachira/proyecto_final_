@@ -28,6 +28,9 @@ dieta_origen_animal<- function(){
     grasas_alimento_dieta_oa1<- alimento_origen_animal[alimento_dieta_oa1, "Grasas"]
     n_grasas_alimento_dieta_oa1<- as.numeric(grasas_alimento_dieta_oa1)
     n_grasas_totales_oa1<- (n_grasas_alimento_dieta_oa1*n_porcion_alimento1)/100
+    #Arroja todos los valores
+    vectorao <- c(kcal_totales_oa1, n_proteina_totales_oa1, n_carbohidratos_totales_oa1, n_grasas_totales_oa1)
+    return(print (vectorao))
     return(print(paste("En alimentos de origen animal las kcal totales son", kcal_totales_oa1, ",las proteinas totales en kcal son", n_proteina_totales_oa1, ", los carbohidratos totales son", n_carbohidratos_totales_oa1, " y las grasas totales son", n_grasas_totales_oa1 )))
   }else if (cantidad_de_oa==2){
     #Saca las kcal
@@ -140,6 +143,11 @@ dieta_origen_animal<- function(){
   }
 }
 dieta_origen_animal()
+vectorao
+
+nombres<- c("kcal","proteina","carbohidratos","grasas")
+names(dieta_origen_animal)<-nombres
+matriz<- matrix()
 
 
 #####  #####   #####   #####   #####   #####   #####
