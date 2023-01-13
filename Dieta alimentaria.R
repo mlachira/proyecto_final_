@@ -782,10 +782,10 @@ dieta_leguminosas<- function(){
   cantidad_de_leguminosass<- readline(prompt = "Ingresa el numero de leguminosas: ")
   if(cantidad_de_leguminosas==1){
     #Saca las kcal
-    alimento_dieta_leguminosas1<-readline(prompt = "Ingresa leguminosas 1")
+    alimento_dieta_leguminosas1<-readline(prompt = "Ingresa leguminosas 1: ")
     kcal_alimento_dieta_leguminosas1<- leguminosas[alimento_dieta_leguminosas1, "kcal"]
     n_kcal_alimento_dieta_leguminosas1<-as.numeric(kcal_alimento_dieta_leguminosas1)
-    porcion_leguminosas1<- readline(prompt = "Ingresa el peso en gr de leguminosas")
+    porcion_leguminosas1<- readline(prompt = "Ingresa el peso en gr de leguminosas: ")
     n_porcion_leguminosas1<-as.numeric(porcion_leguminosas1)
     kcal_totales_leguminosas1<- (n_kcal_alimento_dieta_leguminosas1*n_porcion_leguminosas1)/100
     kcal_totales_leguminosas1
@@ -914,10 +914,10 @@ dieta_grasas_con_proteina<- function(){
   cantidad_de_grasas_proteina<- readline(prompt = "Ingresa el numero de alimentos de grasas con proteinas: ")
   if(cantidad_de_grasas_proteina==1){
     #Saca las kcal
-    alimento_dieta_grasas_proteina1<-readline(prompt = "Ingresa grasas con proteinas 1")
+    alimento_dieta_grasas_proteina1<-readline(prompt = "Ingresa grasas con proteinas 1: ")
     kcal_alimento_dieta_grasas_proteina1<- grasas_con_proteinas[alimento_dieta_grasas_proteina1, "kcal"]
     n_kcal_alimento_dieta_grasas_proteina1<-as.numeric(kcal_alimento_dieta_grasas_proteina1)
-    porcion_grasas_proteina1<- readline(prompt = "Ingresa el peso en gr de grasas con proteinas")
+    porcion_grasas_proteina1<- readline(prompt = "Ingresa el peso en gr de grasas con proteinas: ")
     n_porcion_grasas_proteina1<-as.numeric(porcion_grasas_proteina1)
     kcal_totales_grasas_proteina1<- (n_kcal_alimento_dieta_grasas_proteina1*n_porcion_grasas_proteina1)/100
     kcal_totales_grasas_proteina1
@@ -1048,10 +1048,10 @@ dieta_grasas<- function(){
   cantidad_de_grasass<- readline(prompt = "Ingresa el numero de grasas: ")
   if(cantidad_de_grasas==1){
     #Saca las kcal
-    alimento_dieta_grasas1<-readline(prompt = "Ingresa grasas 1")
+    alimento_dieta_grasas1<-readline(prompt = "Ingresa grasas 1: ")
     kcal_alimento_dieta_grasas1<- grasas[alimento_dieta_grasas1, "kcal"]
     n_kcal_alimento_dieta_grasas1<-as.numeric(kcal_alimento_dieta_grasas1)
-    porcion_grasas1<- readline(prompt = "Ingresa el peso en gr de grasas")
+    porcion_grasas1<- readline(prompt = "Ingresa el peso en gr de grasas: ")
     n_porcion_grasas1<-as.numeric(porcion_grasas1)
     kcal_totales_grasas1<- (n_kcal_alimento_dieta_grasas1*n_porcion_grasas1)/100
     kcal_totales_grasas1
@@ -1177,13 +1177,13 @@ dieta_grasas()
 azucar
 
 dieta_azucar<- function(){
-  cantidad_de_azucars<- readline(prompt = "Ingresa el numero de azucar: ")
+  cantidad_de_azucar<- readline(prompt = "Ingresa el numero de azucar: ")
   if(cantidad_de_azucar==1){
     #Saca las kcal
-    alimento_dieta_azucar1<-readline(prompt = "Ingresa azucar 1")
+    alimento_dieta_azucar1<-readline(prompt = "Ingresa azucar 1: ")
     kcal_alimento_dieta_azucar1<- azucar[alimento_dieta_azucar1, "kcal"]
     n_kcal_alimento_dieta_azucar1<-as.numeric(kcal_alimento_dieta_azucar1)
-    porcion_azucar1<- readline(prompt = "Ingresa el peso en gr de azucar")
+    porcion_azucar1<- readline(prompt = "Ingresa el peso en gr de azucar: ")
     n_porcion_azucar1<-as.numeric(porcion_azucar1)
     kcal_totales_azucar1<- (n_kcal_alimento_dieta_azucar1*n_porcion_azucar1)/100
     kcal_totales_azucar1
