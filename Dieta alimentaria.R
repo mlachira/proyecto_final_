@@ -1293,6 +1293,7 @@ alimento_azucar
 
 #Hago una tabla en blanco con data.frame.
 #Una tabla equivale a un día
+
 comidas_prueba<- data.frame(comidas= character(),
                              kcal = numeric(),
                              proteinas = numeric(),
@@ -1429,5 +1430,4 @@ Cena<-data.frame(comidas="Cena",
 Cena
 comidas_prueba<- rbind(comidas_prueba, Cena)
 comidas_prueba
-
-
+}
