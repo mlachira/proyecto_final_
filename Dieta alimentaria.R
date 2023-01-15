@@ -6,9 +6,10 @@
 alimento_origen_animal
 
 #Quite function porque no te regresa el objeto alimento
+
+prueba_alimentos<- function(){
   cantidad_de_oa<- readline(prompt = "Ingresa el numero de alimentos de origen animal: ")
   cantidad_oa<- as.numeric(cantidad_de_oa)
-  for(alimento in comidas){
   if(cantidad_oa==1){
     #Saca las kcal
     alimento_dieta_oa1<-readline(prompt = "Ingresa alimento de origen animal 1: ")
@@ -148,48 +149,12 @@ alimento_origen_animal
     nombres<- c("kcal","proteina","carbohidratos","grasas")
     names(alimento)<-nombres
     return(print(alimento))
-    }
-  } 
-alimento
-
-#####  #####   #####   #####   #####   #####   #####
-
-#FORMA 1
-#podriamos hacer un data frame, pero creo que solo admite vectores
-matriz_oa <- data.frame(
-  "kcal" = (kcal_totales_oa3), 
-  "Prote?nas totales" = (proteina_totales_oa3), 
-  "proteinas totales" = (proteina_totales_oa3), 
-  "Carbohidratos" = (carbohidrato_totales_oa3),
-  "Grasas" = (grasas_totales_oa3)
-)
-matriz_oa
-
-
-#FORMA 2
-install.packages("expss")
-library(expss)
-
-mtcars
-fre(kcal_totales_oa3)
-
-
-alimentos_oa <- apply_labels(kcal_totales_oa3,
-                             mpg = "Miles/(US) gallon",
-                             cyl = "Number of cylinders",
-                             disp = "Displacement (cu.in.)",
-                             hp = "Gross horsepower")
-
-#p?gina super util para tablas: https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/
-      
-                             
-#####  #####   #####   #####   #####   #####   #####
-
-
-
-######### FRUTAS #######
-frutas
-
+  }
+}
+alimento_animal<- prueba_alimentos()
+alimento_animal
+#######Fruta ###########
+prueba_fruta<-function(){
   cantidad_de_fruta<- readline(prompt = "Ingresa el numero de frutas: ")
   cantidad_fruta<- as.numeric(cantidad_de_fruta)
   if(cantidad_fruta==1){
@@ -495,13 +460,15 @@ frutas
     nombres<- c("kcal","proteina","carbohidratos","grasas")
     names(fruta)<- nombres
     return(print(fruta))}
-fruta
+}
+alimento_fruta<- prueba_fruta()
+alimento_fruta
 
 
 
 ######### VERDURAS #######
 verduras
-
+prueba_verdura<-function(){
   cantidad_de_verd <- readline(prompt = "Ingresa el numero de verduras: ")
   cantidad_verduras<- as.numeric(cantidad_de_verd)
   if(cantidad_verduras == 1){
@@ -808,13 +775,16 @@ verduras
     names(verdura)<- nombres
     return(print(verdura))
     }
-verdura
+}
+alimento_verdura<-prueba_verdura()
+alimento_verdura
+
 ######Checar 4 #########
 
 
 ######## LEGUMINOSAS #######
 leguminosas
-
+prueba_leguminosa<- function(){
   cantidad_de_leguminosas<- readline(prompt = "Ingresa el numero de leguminosas: ")
   cantidad_leguminosas<- as.numeric(cantidad_de_leguminosas)
   if(cantidad_leguminosas==1){
@@ -949,12 +919,13 @@ leguminosas
     names(leguminosa)<- nombres
     return(print(leguminosa))
   }
-leguminosa
-
+}
+alimento_leguminosa<- prueba_leguminosa()
+alimento_leguminosa
 
 ######## GRASAS CON PROTEINA ######
 grasas_con_proteinas
-
+pruebas_grasas_proteína<- function(){
   cantidad_de_grasas_proteina<- readline(prompt = "Ingresa el numero de alimentos de grasas con proteinas: ")
   cantidad_grasas_proteina<- as.numeric(cantidad_de_grasas_proteina)
   if(cantidad_grasas_proteina==1){
@@ -1089,14 +1060,16 @@ grasas_con_proteinas
       names(grasas_proteina)<- nombres
       return(print(grasas_proteina))
     }
-grasas_proteina
+}
+alimento_grasas_proteina<-pruebas_grasas_proteína()
+alimento_grasas_proteina
 
 
 
 
 ####### GRASAS #######
 grasas
-
+prueba_grasas<- function (){
   cantidad_de_grasas<- readline(prompt = "Ingresa el numero de grasas: ")
   cantidad_grasas<- as.numeric(cantidad_de_grasas)
   if(cantidad_grasas==1){
@@ -1231,12 +1204,14 @@ grasas
     names(grasa)<- nombres
     return(print(grasa))
   }
-grasa
+}
+alimento_grasas<- prueba_grasas()
+alimento_grasas
 
 
 ####### AZUCAR #######
 azucar
-
+prueba_azucar<-function(){
   cantidad_de_azucar<- readline(prompt = "Ingresa el numero de azucar: ")
   cantidad_azucar<- as.numeric(cantidad_de_azucar)
   if(cantidad_azucar==1){
@@ -1310,25 +1285,149 @@ azucar
     names(azucar_1)<- nombres
     return(print(azucar_1))
   }
-azucar_1
+}
+alimento_azucar<-prueba_azucar()
+alimento_azucar
 
 ######Checar el 2 #######
 
-#Hago una tabla en blanco con data.frame
-comidas_prueba <- data.frame(comidas= character(),
+#Hago una tabla en blanco con data.frame.
+#Una tabla equivale a un día
+comidas_prueba<- data.frame(comidas= character(),
                              kcal = numeric(),
                              proteinas = numeric(),
                              carbohidratos = numeric(),
                              grasa = numeric())
 comidas_prueba
-#Para llenarla lo voy a hacer por filar
-z<-data.frame(comidas="Desayuno",
-              kcal= alimento["kcal"] + fruta["kcal"] + verdura ["kcal"] + leguminosa ["kcal"] + grasas_proteina["kcal"] + grasa["kcal"] + azucar_1 ["kcal"],
-              proteinas=alimento["proteina"] + fruta["proteina"] + verdura ["proteina"] + leguminosa ["proteina"] + grasas_proteina["proteina"] + grasa["proteina"] + azucar_1 ["proteina"],
-              carbohidratos=alimento["carbohidratos"] + fruta["carbohidratos"] + verdura ["carbohidratos"] + leguminosa ["carbohidratos"] + grasas_proteina["carbohidratos"] + grasa["carbohidratos"] + azucar_1 ["carbohidratos"],
-              grasa= alimento["grasas"] + fruta["grasas"] + verdura["grasas"] + leguminosa["grasas"] + grasas_proteina["grasas"] + grasa["grasas"] + azucar_1["grasas"])
-z
+#Para llenarla lo voy a hacer por fila
+alimento_animal<- prueba_alimentos()
+alimento_animal
+alimento_fruta<- prueba_fruta()
+alimento_fruta
+alimento_verdura<- prueba_verdura()
+alimento_verdura
+alimento_leguminosa<- prueba_leguminosa()
+alimento_leguminosa
+alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina
+alimento_grasas<- prueba_grasas()
+alimento_grasas
+alimento_azucar<- prueba_azucar()
+alimento_azucar
+
+Desayuno<-data.frame(comidas="Desayuno",
+              kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
+              proteinas=alimento_animal["proteina"] + alimento_fruta["proteina"] + alimento_verdura ["proteina"] + alimento_leguminosa ["proteina"] + alimento_grasas_proteina["proteina"] + alimento_grasas["proteina"] + alimento_azucar ["proteina"],
+              carbohidratos=alimento_animal["carbohidratos"] + alimento_fruta["carbohidratos"] + alimento_verdura ["carbohidratos"] + alimento_leguminosa ["carbohidratos"] + alimento_grasas_proteina["carbohidratos"] + alimento_grasas["carbohidratos"] + alimento_azucar ["carbohidratos"],
+              grasa= alimento_animal["grasas"] + alimento_fruta["grasas"] + alimento_verdura["grasas"] + alimento_leguminosa["grasas"] + alimento_grasas_proteina["grasas"] + alimento_grasas["grasas"] + alimento_azucar["grasas"])
+
+Desayuno
+
 #Inserto la fila con la función rbind
-comidas_prueba<- rbind(comidas_prueba,z)
+comidas_prueba<- rbind(comidas_prueba, Desayuno)
 comidas_prueba
+
+alimento_animal<- prueba_alimentos()
+alimento_animal
+alimento_fruta<- prueba_fruta()
+alimento_fruta
+alimento_verdura<- prueba_verdura()
+alimento_verdura
+alimento_leguminosa<- prueba_leguminosa()
+alimento_leguminosa
+alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina
+alimento_grasas<- prueba_grasas()
+alimento_grasas
+alimento_azucar<- prueba_azucar()
+alimento_azucar
+
+Colacion_1<-data.frame(comidas="Colación 1",
+                       kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
+                       proteinas=alimento_animal["proteina"] + alimento_fruta["proteina"] + alimento_verdura ["proteina"] + alimento_leguminosa ["proteina"] + alimento_grasas_proteina["proteina"] + alimento_grasas["proteina"] + alimento_azucar ["proteina"],
+                       carbohidratos=alimento_animal["carbohidratos"] + alimento_fruta["carbohidratos"] + alimento_verdura ["carbohidratos"] + alimento_leguminosa ["carbohidratos"] + alimento_grasas_proteina["carbohidratos"] + alimento_grasas["carbohidratos"] + alimento_azucar ["carbohidratos"],
+                       grasa= alimento_animal["grasas"] + alimento_fruta["grasas"] + alimento_verdura["grasas"] + alimento_leguminosa["grasas"] + alimento_grasas_proteina["grasas"] + alimento_grasas["grasas"] + alimento_azucar["grasas"])
+
+Colacion_1
+
+comidas_prueba<- rbind(comidas_prueba, Colacion_1)
+comidas_prueba
+
+alimento_animal<- prueba_alimentos()
+alimento_animal
+alimento_fruta<- prueba_fruta()
+alimento_fruta
+alimento_verdura<- prueba_verdura()
+alimento_verdura
+alimento_leguminosa<- prueba_leguminosa()
+alimento_leguminosa
+alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina
+alimento_grasas<- prueba_grasas()
+alimento_grasas
+alimento_azucar<- prueba_azucar()
+alimento_azucar
+
+Comida<data.frame(comidas="Comida",
+                  kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
+                  proteinas=alimento_animal["proteina"] + alimento_fruta["proteina"] + alimento_verdura ["proteina"] + alimento_leguminosa ["proteina"] + alimento_grasas_proteina["proteina"] + alimento_grasas["proteina"] + alimento_azucar ["proteina"],
+                  carbohidratos=alimento_animal["carbohidratos"] + alimento_fruta["carbohidratos"] + alimento_verdura ["carbohidratos"] + alimento_leguminosa ["carbohidratos"] + alimento_grasas_proteina["carbohidratos"] + alimento_grasas["carbohidratos"] + alimento_azucar ["carbohidratos"],
+                  grasa= alimento_animal["grasas"] + alimento_fruta["grasas"] + alimento_verdura["grasas"] + alimento_leguminosa["grasas"] + alimento_grasas_proteina["grasas"] + alimento_grasas["grasas"] + alimento_azucar["grasas"])
+
+Comida
+
+comidas_prueba<- rbind(comidas_prueba, Comida)
+comidas_prueba
+
+alimento_animal<- prueba_alimentos()
+alimento_animal
+alimento_fruta<- prueba_fruta()
+alimento_fruta
+alimento_verdura<- prueba_verdura()
+alimento_verdura
+alimento_leguminosa<- prueba_leguminosa()
+alimento_leguminosa
+alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina
+alimento_grasas<- prueba_grasas()
+alimento_grasas
+alimento_azucar<- prueba_azucar()
+alimento_azucar
+
+Colacion_2<-data.frame(comidas="Colación 2",
+                       kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
+                       proteinas=alimento_animal["proteina"] + alimento_fruta["proteina"] + alimento_verdura ["proteina"] + alimento_leguminosa ["proteina"] + alimento_grasas_proteina["proteina"] + alimento_grasas["proteina"] + alimento_azucar ["proteina"],
+                       carbohidratos=alimento_animal["carbohidratos"] + alimento_fruta["carbohidratos"] + alimento_verdura ["carbohidratos"] + alimento_leguminosa ["carbohidratos"] + alimento_grasas_proteina["carbohidratos"] + alimento_grasas["carbohidratos"] + alimento_azucar ["carbohidratos"],
+                       grasa= alimento_animal["grasas"] + alimento_fruta["grasas"] + alimento_verdura["grasas"] + alimento_leguminosa["grasas"] + alimento_grasas_proteina["grasas"] + alimento_grasas["grasas"] + alimento_azucar["grasas"])
+
+Colacion_2
+
+comidas_prueba<- rbind(comidas_prueba, Colacion_2)
+comidas_prueba
+
+alimento_animal<- prueba_alimentos()
+alimento_animal
+alimento_fruta<- prueba_fruta()
+alimento_fruta
+alimento_verdura<- prueba_verdura()
+alimento_verdura
+alimento_leguminosa<- prueba_leguminosa()
+alimento_leguminosa
+alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina
+alimento_grasas<- prueba_grasas()
+alimento_grasas
+alimento_azucar<- prueba_azucar()
+alimento_azucar
+
+Cena<-data.frame(comidas="Cena",
+                 kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
+                 proteinas=alimento_animal["proteina"] + alimento_fruta["proteina"] + alimento_verdura ["proteina"] + alimento_leguminosa ["proteina"] + alimento_grasas_proteina["proteina"] + alimento_grasas["proteina"] + alimento_azucar ["proteina"],
+                 carbohidratos=alimento_animal["carbohidratos"] + alimento_fruta["carbohidratos"] + alimento_verdura ["carbohidratos"] + alimento_leguminosa ["carbohidratos"] + alimento_grasas_proteina["carbohidratos"] + alimento_grasas["carbohidratos"] + alimento_azucar ["carbohidratos"],
+                 grasa= alimento_animal["grasas"] + alimento_fruta["grasas"] + alimento_verdura["grasas"] + alimento_leguminosa["grasas"] + alimento_grasas_proteina["grasas"] + alimento_grasas["grasas"] + alimento_azucar["grasas"])
+
+Cena
+comidas_prueba<- rbind(comidas_prueba, Cena)
+comidas_prueba
+
 
