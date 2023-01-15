@@ -808,7 +808,7 @@ verduras
     names(verdura)<- nombres
     return(print(verdura))
     }
-
+verdura
 ######Checar 4 #########
 
 
@@ -1314,5 +1314,21 @@ azucar_1
 
 ######Checar el 2 #######
 
-
+#Hago una tabla en blanco con data.frame
+comidas_prueba <- data.frame(comidas= character(),
+                             kcal = numeric(),
+                             proteinas = numeric(),
+                             carbohidratos = numeric(),
+                             grasa = numeric())
+comidas_prueba
+#Para llenarla lo voy a hacer por filar
+z<-data.frame(comidas="Desayuno",
+              kcal= alimento["kcal"] + fruta["kcal"] + verdura ["kcal"] + leguminosa ["kcal"] + grasas_proteina["kcal"] + grasa["kcal"] + azucar_1 ["kcal"],
+              proteinas=alimento["proteina"] + fruta["proteina"] + verdura ["proteina"] + leguminosa ["proteina"] + grasas_proteina["proteina"] + grasa["proteina"] + azucar_1 ["proteina"],
+              carbohidratos=alimento["carbohidratos"] + fruta["carbohidratos"] + verdura ["carbohidratos"] + leguminosa ["carbohidratos"] + grasas_proteina["carbohidratos"] + grasa["carbohidratos"] + azucar_1 ["carbohidratos"],
+              grasa= alimento["grasas"] + fruta["grasas"] + verdura["grasas"] + leguminosa["grasas"] + grasas_proteina["grasas"] + grasa["grasas"] + azucar_1["grasas"])
+z
+#Inserto la fila con la función rbind
+comidas_prueba<- rbind(comidas_prueba,z)
+comidas_prueba
 
