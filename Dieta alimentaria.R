@@ -5,10 +5,10 @@
 #Para imprimir la tabla
 alimento_origen_animal
 
-dieta_origen_animal<- function(){
+#Quite function porque no te regresa el objeto alimento
   cantidad_de_oa<- readline(prompt = "Ingresa el numero de alimentos de origen animal: ")
   cantidad_oa<- as.numeric(cantidad_de_oa)
-  for(alimento in 1){
+  for(alimento in comidas){
   if(cantidad_oa==1){
     #Saca las kcal
     alimento_dieta_oa1<-readline(prompt = "Ingresa alimento de origen animal 1: ")
@@ -19,7 +19,7 @@ dieta_origen_animal<- function(){
     kcal_totales_oa1<- (n_kcal_alimento_dieta_oa1*n_porcion_alimento1)/100
     kcal_totales_oa1
     #Saca las proteinas 
-    proteina_alimento_dieta_oa1<-alimento_origen_animal[alimento_dieta_oa1, "ProteÍnas"]
+    proteina_alimento_dieta_oa1<-alimento_origen_animal[alimento_dieta_oa1, "Proteínas"]
     n_proteina_alimento_dieta_oa1<- as.numeric(proteina_alimento_dieta_oa1)
     n_proteina_totales_oa1<- (n_proteina_alimento_dieta_oa1*n_porcion_alimento1)/100
     #Saca los carbohidratos
@@ -149,9 +149,8 @@ dieta_origen_animal<- function(){
     names(alimento)<-nombres
     return(print(alimento))
     }
-  }
-}
-dieta_origen_animal()
+  } 
+alimento
 
 #####  #####   #####   #####   #####   #####   #####
 
@@ -191,7 +190,6 @@ alimentos_oa <- apply_labels(kcal_totales_oa3,
 ######### FRUTAS #######
 frutas
 
-dieta_fruta<- function(){
   cantidad_de_fruta<- readline(prompt = "Ingresa el numero de frutas: ")
   cantidad_fruta<- as.numeric(cantidad_de_fruta)
   for(fruta in 1){
@@ -500,17 +498,16 @@ dieta_fruta<- function(){
     return(print(fruta))
   }
   }
-}
-dieta_fruta()
+fruta
 
 
 
 ######### VERDURAS #######
 verduras
 
-dieta_verduras <- function(){
   cantidad_de_verd <- readline(prompt = "Ingresa el numero de verduras: ")
-  if(cantidad_de_verd == 1){
+  cantidad_verduras<- as.numeric(cantidad_de_verd)
+  if(cantidad_verduras == 1){
     #Saca las kcal
     alimento_dieta_verd1 <- readline(prompt = "Ingresa la verdura 1: ")
     kcal_alimento_dieta_verd1 <- verduras[alimento_dieta_verd1, "kcal"]
@@ -531,8 +528,11 @@ dieta_verduras <- function(){
     grasas_alimento_dieta_verd1 <- verduras[alimento_dieta_verd1, "Grasas"]
     n_grasas_alimento_dieta_verd1 <- as.numeric(grasas_alimento_dieta_verd1)
     n_grasas_totales_verd1 <- (n_grasas_alimento_dieta_verd1*n_porcion_verd1)/100
-    return(print(paste("En verduras las kcal totales son ", kcal_totales_verd1, ",las proteinas totales en kcal son ", n_proteina_totales_verd1, ", los carbohidratos totales son ", n_carbohidratos_totales_verd1, " y las grasas totales son ", n_grasas_totales_verd1 )))
-  }else if (cantidad_de_verd == 2){
+    verdura<- c(kcal_totales_verd1, n_proteina_totales_verd1, n_carbohidratos_totales_verd1, n_grasas_totales_verd1)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(verdura)<- nombres
+    return(print(verdura))
+  }else if (cantidad_verduras == 2){
     #Saca las kcal
     alimento_dieta_verd2.1 <- readline(prompt = "Ingresa la verdura 1: ")
     kcal_alimento_dieta_verd2.1 <- verduras[alimento_dieta_verd2.1, "kcal"]
@@ -574,8 +574,11 @@ dieta_verduras <- function(){
     n_grasas_alimento_dieta_verd2.2<- as.numeric(grasas_alimento_dieta_verd2.2)
     n_grasas_totales_verd2.2<- (n_grasas_alimento_dieta_verd2.2*n_porcion_verd2.2)/100
     grasas_totales_verd2<- n_grasas_totales_verd2.1 + n_grasas_totales_verd2.2
-    return(print(paste("En verduras las kcal son", kcal_totales_verd2, ", las proteinas totales son", proteina_totales_verd2, ", los carbohidratos totales son", carbohidrato_totales_verd2, ", las grasas totales son", grasas_totales_verd2)))
-  } else if (cantidad_de_verd==3){
+    verdura<- c(kcal_totales_verd2, proteina_totales_verd2, carbohidrato_totales_verd2, grasas_totales_verd2)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(verdura)<- nombres
+    return(print(verdura))
+  } else if (cantidad_verduras==3){
     #Saca las kcal
     alimento_dieta_verd3.1<-readline(prompt = "Ingresa la verdura 1: ")
     kcal_alimento_dieta_verd3.1<- verduras[alimento_dieta_verd3.1, "kcal"]
@@ -633,9 +636,11 @@ dieta_verduras <- function(){
     n_grasas_alimento_dieta_verd3.3<- as.numeric(grasas_alimento_dieta_verd3.3)
     n_grasas_totales_verd3.3<- (n_grasas_alimento_dieta_verd3.3*n_porcion_verd3.3)/100
     grasas_totales_verd3<- n_grasas_totales_verd3.1 + n_grasas_totales_verd3.2 + n_grasas_totales_verd3.3
-    return(print(paste("En las verduras las kcal son ", kcal_totales_verd3, ", las proteinas totales son", proteina_totales_verd3, ", los carbohidratos totales son", carbohidrato_totales_verd3, "las grasas totales son", grasas_totales_verd3)))
-    
-  } else if (cantidad_de_verd==4){
+    verdura<- c(kcal_totales_verd3, proteina_totales_verd3, carbohidrato_totales_verd3, grasas_totales_verd3)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(verdura)<- nombres
+    return(print(verdura))
+    } else if (cantidad_verduras==4){
     alimento_dieta_verd4.1<-readline(prompt = "Ingresa la verdura 1: ")
     kcal_alimento_dieta_verd4.1<- verduras[alimento_dieta_verd4.1, "kcal"]
     n_kcal_alimento_dieta_verd4.1<-as.numeric(kcal_alimento_dieta_verd4.1)
@@ -708,8 +713,11 @@ dieta_verduras <- function(){
     n_grasas_alimento_dieta_verd4.4<- as.numeric(grasas_alimento_dieta_verd4.4)
     n_grasas_totales_verd4.4<- (n_grasas_alimento_dieta_verd4.4*n_porcion_verd4.4)/100
     grasas_totales_verd4<- n_grasas_totales_verd4.1 + n_grasas_totales_verd4.2 + n_grasas_totales_verd4.3 + n_grasas_totales_verd4.4
-    return(print(paste("En las verduras las kcal son", kcal_totales_verd4, ", las proteinas totales son", proteina_totales_verd4, ", los carbohidratos totales son", carbohidrato_totales_verd4, "las grasas totales son", grasas_totales_verd4)))
-  } else if (cantidad_de_verd==5){
+    verdura<- c(kcal_totales_verd4, proteina_totales_verd4, carbohidrato_totales_verd4, grasas_totales_verd4)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(verdura)<- nombres
+   return(print(verdura))
+    } else if (cantidad_verduras==5){
     alimento_dieta_verd5.1<-readline(prompt = "Ingresa la verdura 1: ")
     kcal_alimento_dieta_verd5.1<- verduras[alimento_dieta_verd5.1, "kcal"]
     n_kcal_alimento_dieta_verd5.1<-as.numeric(kcal_alimento_dieta_verd5.1)
@@ -798,19 +806,21 @@ dieta_verduras <- function(){
     n_grasas_alimento_dieta_verd5.5<- as.numeric(grasas_alimento_dieta_verd5.5)
     n_grasas_totales_verd5.5<- (n_grasas_alimento_dieta_verd5.5*n_porcion_verd5.5)/100
     grasas_totales_verd5<- n_grasas_totales_verd5.1 + n_grasas_totales_verd5.2 + n_grasas_totales_verd5.3 + n_grasas_totales_verd5.4 + n_grasas_totales_verd5.5
-    return(print(paste("En las verduras las kcal son", kcal_totales_verd5, ", las proteinas totales son", proteina_totales_verd5, ", los carbohidratos totales son", carbohidrato_totales_verd5, "las grasas totales son", grasas_totales_verd5)))
-  }
-}
-dieta_verduras()
+    verdura<- c(kcal_totales_verd5, proteina_totales_verd5, carbohidrato_totales_verd5, grasas_totales_verd5)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(verdura)<- nombres
+    return(print(verdura))
+    }
+
 
 
 
 ######## LEGUMINOSAS #######
 leguminosas
 
-dieta_leguminosas<- function(){
-  cantidad_de_leguminosass<- readline(prompt = "Ingresa el numero de leguminosas: ")
-  if(cantidad_de_leguminosas==1){
+  cantidad_de_leguminosas<- readline(prompt = "Ingresa el numero de leguminosas: ")
+  cantidad_leguminosas<- as.numeric(cantidad_de_leguminosas)
+  if(cantidad_leguminosas==1){
     #Saca las kcal
     alimento_dieta_leguminosas1<-readline(prompt = "Ingresa leguminosas 1: ")
     kcal_alimento_dieta_leguminosas1<- leguminosas[alimento_dieta_leguminosas1, "kcal"]
@@ -831,8 +841,11 @@ dieta_leguminosas<- function(){
     grasas_alimento_dieta_leguminosas1<- leguminosas[alimento_dieta_leguminosas1, "Grasas"]
     n_grasas_alimento_dieta_leguminosas1<- as.numeric(grasas_alimento_dieta_leguminosas1)
     grasas_totales_leguminosas1<- (n_grasas_alimento_dieta_leguminosas1*n_porcion_leguminosas1)/100
-    return(print(paste("En leguminosas las kcal totales son", kcal_totales_leguminosas1, ",las proteinas totales en kcal son", proteina_totales_leguminosas1, ", los carbohidratos totales son", carbohidratos_totales_leguminosas1, " y las grasas totales son", grasas_totales_leguminosas1 )))
-  }else if (cantidad_de_leguminosas==2){
+    leguminosa<- c(kcal_totales_leguminosas1, proteina_totales_leguminosas1, carbohidratos_totales_leguminosas1, grasas_totales_leguminosas1)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(leguminosa)<- nombres
+    return(print(leguminosa))
+    }else if (cantidad_leguminosas==2){
     #Saca las kcal
     alimento_dieta_leguminosas2.1<-readline(prompt = "Ingresa leguminosas 1: ")
     kcal_alimento_dieta_leguminosas2.1<- leguminosas[alimento_dieta_leguminosas2.1, "kcal"]
@@ -873,8 +886,11 @@ dieta_leguminosas<- function(){
     n_grasas_alimento_dieta_leguminosas2.2<- as.numeric(grasas_alimento_dieta_leguminosas2.2)
     n_grasas_leguminosas2.2<- (n_grasas_alimento_dieta_leguminosas2.2*n_porcion_leguminosas2.2)/100
     grasas_totales_leguminosas2<- n_grasas_leguminosas2.1 + n_grasas_leguminosas2.2
-    return(print(paste("En leguminosas las kcal totales son", kcal_totales_leguminosas2, ",las proteinas totales en kcal son", proteina_totales_leguminosas2, ", los carbohidratos totales son", carbohidratos_totales_leguminosas2, " y las grasas totales son", grasas_totales_leguminosas2 )))
-  }else if (cantidad_de_leguminosas==3){
+    leguminosa<- c(kcal_totales_leguminosas2, proteina_totales_leguminosas2, carbohidratos_totales_leguminosas2, grasas_totales_leguminosas2)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(leguminosa)<- nombres
+    return(print(leguminosa))
+  }else if (cantidad_leguminosas==3){
     #Saca las kcal
     alimento_dieta_leguminosas3.1<-readline(prompt = "Ingresa leguminosas 3: ")
     kcal_alimento_dieta_leguminosas3.1<- leguminosas[alimento_dieta_leguminosas3.1, "kcal"]
@@ -931,16 +947,17 @@ dieta_leguminosas<- function(){
     n_grasas_alimento_dieta_leguminosas3.3<- as.numeric(grasas_alimento_dieta_leguminosas3.3)
     n_grasas_leguminosas3.3<- (n_grasas_alimento_dieta_leguminosas3.3*n_porcion_leguminosas3.3)/100
     grasas_totales_leguminosas3<- n_grasas_leguminosas3.1 + n_grasas_leguminosas3.2 + n_grasas_leguminosas3.3
-    return(print(paste("En leguminosas las kcal totales son", kcal_totales_leguminosas3, ",las proteinas totales en kcal son", proteina_totales_leguminosas3, ", los carbohidratos totales son", carbohidratos_totales_leguminosas3, " y las grasas totales son", grasas_totales_leguminosas3 )))
+    leguminosa<- c(kcal_totales_leguminosas3, proteina_totales_leguminosas3, carbohidratos_totales_leguminosas3, grasas_totales_leguminosas3)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(leguminosa)<- nombres
+    return(print(leguminosa))
   }
-}
-dieta_leguminosas()
+leguminosa
 
 
 ######## GRASAS CON PROTEINA ######
 grasas_con_proteinas
 
-dieta_grasas_con_proteina<- function(){
   cantidad_de_grasas_proteina<- readline(prompt = "Ingresa el numero de alimentos de grasas con proteinas: ")
   cantidad_grasas_proteina<- as.numeric(cantidad_de_grasas_proteina)
   if(cantidad_grasas_proteina==1){
@@ -1075,8 +1092,7 @@ dieta_grasas_con_proteina<- function(){
       names(grasas_proteina)<- nombres
       return(print(grasas_proteina))
     }
-  }
-dieta_grasas_con_proteina()
+grasas_proteina
 
 
 
@@ -1084,9 +1100,9 @@ dieta_grasas_con_proteina()
 ####### GRASAS #######
 grasas
 
-dieta_grasas<- function(){
-  cantidad_de_grasass<- readline(prompt = "Ingresa el numero de grasas: ")
-  if(cantidad_de_grasas==1){
+  cantidad_de_grasas<- readline(prompt = "Ingresa el numero de grasas: ")
+  cantidad_grasas<- as.numeric(cantidad_de_grasas)
+  if(cantidad_grasas==1){
     #Saca las kcal
     alimento_dieta_grasas1<-readline(prompt = "Ingresa grasas 1: ")
     kcal_alimento_dieta_grasas1<- grasas[alimento_dieta_grasas1, "kcal"]
@@ -1107,8 +1123,11 @@ dieta_grasas<- function(){
     grasas_alimento_dieta_grasas1<- grasas[alimento_dieta_grasas1, "Grasas"]
     n_grasas_alimento_dieta_grasas1<- as.numeric(grasas_alimento_dieta_grasas1)
     grasas_totales_grasas1<- (n_grasas_alimento_dieta_grasas1*n_porcion_grasas1)/100
-    return(print(paste("En grasas las kcal totales son", kcal_totales_grasas1, ",las proteinas totales en kcal son", proteina_totales_grasas1, ", los carbohidratos totales son", carbohidratos_totales_grasas1, " y las grasas totales son", grasas_totales_grasas1 )))
-  }else if (cantidad_de_grasas==2){
+    grasa<- c(kcal_totales_grasas1, proteina_totales_grasas1, carbohidratos_totales_grasas1, grasas_totales_grasas1)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(grasa)<- nombres
+    return(print(grasa))
+  }else if (cantidad_grasas==2){
     #Saca las kcal
     alimento_dieta_grasas2.1<-readline(prompt = "Ingresa grasas 1: ")
     kcal_alimento_dieta_grasas2.1<- grasas[alimento_dieta_grasas2.1, "kcal"]
@@ -1149,8 +1168,11 @@ dieta_grasas<- function(){
     n_grasas_alimento_dieta_grasas2.2<- as.numeric(grasas_alimento_dieta_grasas2.2)
     n_grasas_grasas2.2<- (n_grasas_alimento_dieta_grasas2.2*n_porcion_grasas2.2)/100
     grasas_totales_grasas2<- n_grasas_grasas2.1 + n_grasas_grasas2.2
-    return(print(paste("En grasas las kcal totales son", kcal_totales_grasas2, ",las proteinas totales en kcal son", proteina_totales_grasas2, ", los carbohidratos totales son", carbohidratos_totales_grasas2, " y las grasas totales son", grasas_totales_grasas2 )))
-  }else if (cantidad_de_grasas==3){
+    grasa<- c(kcal_totales_grasas2, proteina_totales_grasas2, carbohidratos_totales_grasas2, grasas_totales_grasas2)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(grasa)<- nombres
+    return(print(grasa))
+  }else if (cantidad_grasas==3){
     #Saca las kcal
     alimento_dieta_grasas3.1<-readline(prompt = "Ingresa grasas 3: ")
     kcal_alimento_dieta_grasas3.1<- grasas[alimento_dieta_grasas3.1, "kcal"]
@@ -1207,19 +1229,19 @@ dieta_grasas<- function(){
     n_grasas_alimento_dieta_grasas3.3<- as.numeric(grasas_alimento_dieta_grasas3.3)
     n_grasas_grasas3.3<- (n_grasas_alimento_dieta_grasas3.3*n_porcion_grasas3.3)/100
     grasas_totales_grasas3<- n_grasas_grasas3.1 + n_grasas_grasas3.2 + n_grasas_grasas3.3
-    return(print(paste("En grasas las kcal totales son", kcal_totales_grasas3, ",las proteinas totales en kcal son", proteina_totales_grasas3, ", los carbohidratos totales son", carbohidratos_totales_grasas3, " y las grasas totales son", grasas_totales_grasas3 )))
+    grasa<- c(kcal_totales_grasas3, proteina_totales_grasas3, carbohidratos_totales_grasas3, grasas_totales_grasas3)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(grasa)<- nombres
+    return(print(grasa))
   }
-}
-dieta_grasas()
+grasa
 
 
 ####### AZUCAR #######
 azucar
 
-dieta_azucar<- function(){
   cantidad_de_azucar<- readline(prompt = "Ingresa el numero de azucar: ")
   cantidad_azucar<- as.numeric(cantidad_de_azucar)
-  for (azucar_1 in 1){
   if(cantidad_azucar==1){
     #Saca las kcal
     alimento_dieta_azucar1<-readline(prompt = "Ingresa azucar 1: ")
@@ -1237,20 +1259,15 @@ dieta_azucar<- function(){
     carbohidratos_alimento_dieta_azucar1<- azucar[alimento_dieta_azucar1, "Carbohidratos"]
     n_carbohidratos_alimento_dieta_azucar1<-as.numeric(carbohidratos_alimento_dieta_azucar1)
     carbohidratos_totales_azucar1<- (n_carbohidratos_alimento_dieta_azucar1*n_porcion_azucar1)/100
-    
-    
-    
-    
-    ######## Se debería sacar la grasa ######
-    #Saca las azucar
-    azucar_alimento_dieta_azucar1<- azucar[alimento_dieta_azucar1, "azucar"]
-    n_azucar_alimento_dieta_azucar1<- as.numeric(azucar_alimento_dieta_azucar1)
-    azucar_totales_azucar1<- (n_azucar_alimento_dieta_azucar1*n_porcion_azucar1)/100
-    azucar_1<- c(kcal_totales_azucar1, proteina_totales_azucar1, carbohidratos_totales_azucar1, )
+    #Saca las grasas
+    grasa_alimento_dieta_azucar1<- azucar[alimento_dieta_azucar1, "Grasas"]
+    n_grasas_alimento_dieta_azucar1<- as.numeric(grasa_alimento_dieta_azucar1)
+    grasas_totales_azucar1<- (n_grasa_alimento_dieta_azucar1*n_porcion_azucar1)/100
+    azucar_1<- c(kcal_totales_azucar1, proteina_totales_azucar1, carbohidratos_totales_azucar1, grasas_totales_azucar1)
     nombres<- c("kcal","proteina","carbohidratos","grasas")
     names(azucar_1)<- nombres
     return(print(azucar_1))
-  }else if (cantidad_de_azucar==2){
+  }else if (cantidad_azucar==2){
     #Saca las kcal
     alimento_dieta_azucar2.1<-readline(prompt = "Ingresa azucar 1: ")
     kcal_alimento_dieta_azucar2.1<- azucar[alimento_dieta_azucar2.1, "kcal"]
@@ -1283,37 +1300,20 @@ dieta_azucar<- function(){
     n_carbohidratos_alimento_dieta_azucar2.2<-as.numeric(carbohidratos_alimento_dieta_azucar2.2)
     n_carbohidratos_azucar2.2<- (n_carbohidratos_alimento_dieta_azucar2.2*n_porcion_azucar2.2)/100
     carbohidratos_totales_azucar2<- n_carbohidratos_azucar2.1 + n_carbohidratos_azucar2.2
-    
-    
-    ######Aquí también :( ######
-    #Saca las azucar
-    azucar_alimento_dieta_azucar2.1<- azucar[alimento_dieta_azucar2.1, "azucar"]
-    n_azucar_alimento_dieta_azucar2.1<- as.numeric(azucar_alimento_dieta_azucar2.1)
-    n_azucar_azucar2.1<- (n_azucar_alimento_dieta_azucar2.1*n_porcion_azucar2.1)/100
-    azucar_alimento_dieta_azucar2.2<- azucar[alimento_dieta_azucar2.2, "azucar"]
-    n_azucar_alimento_dieta_azucar2.2<- as.numeric(azucar_alimento_dieta_azucar2.2)
-    n_azucar_azucar2.2<- (n_azucar_alimento_dieta_azucar2.2*n_porcion_azucar2.2)/100
-    azucar_totales_azucar2<- n_azucar_azucar2.1 + n_azucar_azucar2.2
-    return(print(paste("En azucar las kcal totales son", kcal_totales_azucar2, ",las proteinas totales en kcal son", proteina_totales_azucar2, ", los carbohidratos totales son", carbohidratos_totales_azucar2, " y las azucar totales son", azucar_totales_azucar2 )))
+    #Saca la grasa
+    grasa_alimento_dieta_azucar2.1<- azucar[alimento_dieta_azucar2.1, "Grasa"]
+    n_grasa_alimento_dieta_azucar2.1<- as.numeric(grasa_alimento_dieta_azucar2.1)
+    n_grasa_azucar2.1<- (n_grasa_alimento_dieta_azucar2.1*n_porcion_azucar2.1)/100
+    grasa_alimento_dieta_azucar2.2<- azucar[alimento_dieta_azucar2.2, "Grasa"]
+    n_grasa_alimento_dieta_azucar2.2<- as.numeric(grasa_alimento_dieta_azucar2.2)
+    n_grasa_azucar2.2<- (n_grasa_alimento_dieta_azucar2.2*n_porcion_azucar2.2)/100
+    grasa_totales_azucar2<- n_grasa_azucar2.1 + n_grasa_azucar2.2
+    azucar_1<- c(kcal_totales_azucar2, proteina_totales_azucar2, carbohidratos_totales_azucar2, grasa_totales_azucar2)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(azucar_1)<- nombres
+    return(print(azucar_1))
   }
-  }
-}
-dieta_azucar()
+azucar_1
 
 
 
-
-#Esto me pone las kcal segun la comida :)
-#Ahorita solo esta lo de origen animal pero el chiste es poner todos los grupos 
-comidas<- c("Desayuno", "Colación 1", "Comida", "Colación 2", "Cena")
-comida<-NULL
-for(i in comidas){
-  comida[i]<-dieta_origen_animal()
-              dieta_fruta()
-              dieta_verduras()
-              dieta_leguminosas()
-              dieta_grasas_con_proteina()
-              dieta_grasas()
-              dieta_azucar()
-}
-comida 
