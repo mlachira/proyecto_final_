@@ -4,7 +4,7 @@
 #1. Alimentos de origen animal
 #Se cargo la tabla de alimentos de origen animal, para esto se uso la funcion "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Alimentos_de_origen_animal.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
 alimento_origen_animal <-read.table("Alimentos_de_origen_animal.csv", header=TRUE, sep=',', row.names = 1)
-alimento_origen_animal[c("Pulpo","Pescado","Salchicha"),"kcal"]
+alimento_origen_animal
 
 #2. Cereales
 #Se cargo la tabla de cereales, para esto se uso la funcion "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Cereales.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
@@ -40,4 +40,39 @@ grasas
 #Se cargo la tabla de alimentos de azucar, para esto se uso la funcion "read.table", entre parentesis se coloco entre comillas en nombre del archivo ("Azúcar.csv"), header=TRUE ya que de esta manera indicamos que el nombre de las columnas sea la primera fila, sep="," para indicar que se separa por comas  y por ultimo row.names= 1 indica que los nombres de las filas es la primera columna
 azucar<- read.table("Azucar.csv", header = TRUE, sep = ',', row.names = 1)
 azucar
+
+
+#####  #####   #####   #####   #####   #####   #####
+
+#FORMA 1
+#podriamos hacer un data frame, pero creo que solo admite vectores
+matriz_oa <- data.frame(
+  "kcal" = (kcal_totales_oa3), 
+  "Prote?nas totales" = (proteina_totales_oa3), 
+  "proteinas totales" = (proteina_totales_oa3), 
+  "Carbohidratos" = (carbohidrato_totales_oa3),
+  "Grasas" = (grasas_totales_oa3)
+)
+matriz_oa
+
+
+#FORMA 2
+install.packages("expss")
+library(expss)
+
+mtcars
+fre(kcal_totales_oa3)
+
+
+alimentos_oa <- apply_labels(kcal_totales_oa3,
+                             mpg = "Miles/(US) gallon",
+                             cyl = "Number of cylinders",
+                             disp = "Displacement (cu.in.)",
+                             hp = "Gross horsepower")
+
+#p?gina super util para tablas: https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/
+
+
+#####  #####   #####   #####   #####   #####   #####
+
 
