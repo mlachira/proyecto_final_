@@ -925,7 +925,7 @@ alimento_leguminosa
 
 ######## GRASAS CON PROTEINA ######
 grasas_con_proteinas
-pruebas_grasas_proteína<- function(){
+pruebas_grasas_proteina<- function(){
   cantidad_de_grasas_proteina<- readline(prompt = "Ingresa el numero de alimentos de grasas con proteinas: ")
   cantidad_grasas_proteina<- as.numeric(cantidad_de_grasas_proteina)
   if(cantidad_grasas_proteina==1){
@@ -1061,7 +1061,7 @@ pruebas_grasas_proteína<- function(){
       return(print(grasas_proteina))
     }
 }
-alimento_grasas_proteina<-pruebas_grasas_proteína()
+alimento_grasas_proteina<-pruebas_grasas_proteina()
 alimento_grasas_proteina
 
 
@@ -1309,7 +1309,7 @@ alimento_verdura<- prueba_verdura()
 alimento_verdura
 alimento_leguminosa<- prueba_leguminosa()
 alimento_leguminosa
-alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina<- pruebas_grasas_proteina()
 alimento_grasas_proteina
 alimento_grasas<- prueba_grasas()
 alimento_grasas
@@ -1336,7 +1336,7 @@ alimento_verdura<- prueba_verdura()
 alimento_verdura
 alimento_leguminosa<- prueba_leguminosa()
 alimento_leguminosa
-alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina<- pruebas_grasas_proteina()
 alimento_grasas_proteina
 alimento_grasas<- prueba_grasas()
 alimento_grasas
@@ -1362,14 +1362,14 @@ alimento_verdura<- prueba_verdura()
 alimento_verdura
 alimento_leguminosa<- prueba_leguminosa()
 alimento_leguminosa
-alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina<- pruebas_grasas_proteina()
 alimento_grasas_proteina
 alimento_grasas<- prueba_grasas()
 alimento_grasas
 alimento_azucar<- prueba_azucar()
 alimento_azucar
 
-Comida<data.frame(comidas="Comida",
+Comida<-data.frame(comidas="Comida",
                   kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
                   proteinas=alimento_animal["proteina"] + alimento_fruta["proteina"] + alimento_verdura ["proteina"] + alimento_leguminosa ["proteina"] + alimento_grasas_proteina["proteina"] + alimento_grasas["proteina"] + alimento_azucar ["proteina"],
                   carbohidratos=alimento_animal["carbohidratos"] + alimento_fruta["carbohidratos"] + alimento_verdura ["carbohidratos"] + alimento_leguminosa ["carbohidratos"] + alimento_grasas_proteina["carbohidratos"] + alimento_grasas["carbohidratos"] + alimento_azucar ["carbohidratos"],
@@ -1388,7 +1388,7 @@ alimento_verdura<- prueba_verdura()
 alimento_verdura
 alimento_leguminosa<- prueba_leguminosa()
 alimento_leguminosa
-alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina<- pruebas_grasas_proteina()
 alimento_grasas_proteina
 alimento_grasas<- prueba_grasas()
 alimento_grasas
@@ -1414,7 +1414,7 @@ alimento_verdura<- prueba_verdura()
 alimento_verdura
 alimento_leguminosa<- prueba_leguminosa()
 alimento_leguminosa
-alimento_grasas_proteina<- pruebas_grasas_proteína()
+alimento_grasas_proteina<- pruebas_grasas_proteina()
 alimento_grasas_proteina
 alimento_grasas<- prueba_grasas()
 alimento_grasas
@@ -1428,6 +1428,96 @@ Cena<-data.frame(comidas="Cena",
                  grasa= alimento_animal["grasas"] + alimento_fruta["grasas"] + alimento_verdura["grasas"] + alimento_leguminosa["grasas"] + alimento_grasas_proteina["grasas"] + alimento_grasas["grasas"] + alimento_azucar["grasas"])
 
 Cena
-comidas_prueba<- rbind(comidas_prueba, Cena)
+comidas_prueba <- rbind(comidas_prueba, Cena)
 comidas_prueba
-}
+
+
+#para generar un plot con una tabla que incluya todos los datos del dia
+
+#instale estos paquetes para la tabla:
+  # install.packages("gtExtras")
+  # remotes::install_github("jthomasmock/gtExtras")
+  # install.packages("tidyverse")
+
+#Y cargue las librerias necesarias
+library(gtExtras)
+library(gt)
+library(tidyverse)
+library(glue)
+
+
+
+  ### OPCION 1
+head(comidas_prueba) %>% 
+  gt() %>% 
+  gt_theme_nytimes() %>%
+  tab_header(title = "Resumen d�a 1")
+
+  ### OPCION 2
+head(comidas_prueba) %>%
+  gt() %>% 
+  gt_theme_538()
+
+  ### OPCION 3
+head(comidas_prueba) %>%
+  gt() %>% 
+  gt_theme_espn()
+
+
+#Estaba pensando en dejar el resumen por dia y ya que para que el usuario pueda comparar su progreso, que cada dia descargue la imagen de su resumen
+
+
+
+#### Ejemplos de tablas con base de datos mtcars
+
+mtcars
+
+head(mtcars) %>% 
+  gt() %>% 
+  gt_theme_nytimes() %>% 
+  tab_header(title = "Table styled like the NY Times")
+
+
+gtcars %>%
+  dplyr::select(mfr, model, msrp) %>%
+  dplyr::slice(1:5) %>%
+  gt() %>%
+  tab_header(
+    title = md("Data listing from **gtcars**"),
+    subtitle = md("`gtcars` is an R dataset")
+  )
+
+
+### Ejemplo de comparacion que podriamos usar para que se compare lo que se obtuvo de resumen del d�a, con los valores que debio de obtener de acuerdo a su perfil (establecido en el script de "calculo de calorias")
+
+#install.packages("devtools")
+#devtools::install_github("renkun-ken/formattable")
+#install.packages("formattable")
+library(formattable)
+
+df <- data.frame(
+  id = 1:10,
+  name = c("Bob", "Ashley", "James", "David", "Jenny",
+           "Hans", "Leo", "John", "Emily", "Lee"),
+  age = c(28, 27, 30, 28, 29, 29, 27, 27, 31, 30),
+  grade = c("C", "A", "A", "C", "B", "B", "B", "A", "C", "C"),
+  test1_score = c(8.9, 9.5, 9.6, 8.9, 9.1, 9.3, 9.3, 9.9, 8.5, 8.6),
+  test2_score = c(9.1, 9.1, 9.2, 9.1, 8.9, 8.5, 9.2, 9.3, 9.1, 8.8),
+  final_score = c(9, 9.3, 9.4, 9, 9, 8.9, 9.25, 9.6, 8.8, 8.7),
+  registered = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE),
+  stringsAsFactors = FALSE)
+df
+
+
+formattable(df, list(
+  age = color_tile("white", "orange"),
+  grade = formatter("span", style = x ~ ifelse(x == "A",
+                                               style(color = "green", font.weight = "bold"), NA)),
+  area(col = c(test1_score, test2_score)) ~ normalize_bar("pink", .1),
+  final_score = formatter("span",
+                          style = x ~ style(color = ifelse(rank(-x) <= 3, "green", "gray")),
+                          x ~ sprintf("%.2f (rank: %02d)", x, rank(-x))),
+  registered = formatter("span",
+                         style = x ~ style(color = ifelse(x, "green", "red")),
+                         x ~ icontext(ifelse(x, "ok", "remove"), ifelse(x, "Yes", "No")))
+))
