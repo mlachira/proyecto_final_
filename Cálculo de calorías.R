@@ -66,5 +66,5 @@ division_calorias_proteinas_y_carbs <- function(ingesta_calorica){
 }   
 division_calorias_proteinas_y_carbs(ingesta_calorica)
 ingesta_calorica
-#calorías a kCa
+
 
