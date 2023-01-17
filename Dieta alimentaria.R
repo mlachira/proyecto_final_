@@ -5,6 +5,7 @@
 #Para imprimir la tabla
 alimento_origen_animal
 
+
 #Quite function porque no te regresa el objeto alimento
 
 prueba_alimentos<- function(){
@@ -1293,7 +1294,7 @@ alimento_azucar
 
 #Hago una tabla en blanco con data.frame.
 #Una tabla equivale a un día
-
+dia_prueba<-function(){
 comidas_prueba<- data.frame(comidas= character(),
                              kcal = numeric(),
                              proteinas = numeric(),
@@ -1429,9 +1430,9 @@ Cena<-data.frame(comidas="Cena",
 
 Cena
 comidas_prueba <- rbind(comidas_prueba, Cena)
-comidas_prueba
+return(print(comidas_prueba))}
 
-
+dia_1 <- dia_prueba()
 #para generar un plot con una tabla que incluya todos los datos del dia
 
 #instale estos paquetes para la tabla:
