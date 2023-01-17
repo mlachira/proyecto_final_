@@ -3,7 +3,7 @@
 # son: sexo, peso (en kg), estatura (en cm). edad y factor de actividad.
 # Para obtener dichos datos se usará readline
 metabolismo_basal <- function (peso, estatura, edad, respuesta){
-  readline (prompt = "Para conocer la ingesta calórica correcta para ti, ingresa lo siguiente:")
+  readline (prompt = "Para conocer la ingesta calórica diaria correcta para ti, ingresa lo siguiente:")
   # Sexo ----
   sexo <- readline (prompt = "Ingresa tu sexo: ") #pide que especifiques tu sexo ("hombre" o "mujer") en la consola y asigna tu respuesta a un objeto llamado "sexo"
   # Peso ----
@@ -37,33 +37,31 @@ metabolismo_basal <- function (peso, estatura, edad, respuesta){
     respuesta <- 1.9
   }
   # cálculo del metabolismo basal 
-  #####Mi duda aqui es si si es 665 y el del hombre 66????
   if (sexo == "mujer") { 
     cantidad_calorias <- ((655 + (9.6 * peso)) + ((1.8 * estatura)*(4.7 * edad)) * respuesta)
   } else if (sexo == "hombre") {
     cantidad_calorias <- ((66 + (13.7 * peso)) + ((5 * estatura)*(6.8 * edad)) * respuesta)
   }
-  return(cantidad_calorias)
+ print(paste("La cantidad de calorías requeridas diariamente para su metabolismo basal es de: ", cantidad_calorias))
+ ingesta_calorica <- cantidad_calorias
 }
-######Corregí esto para que el valor de la función basal se ponga en un objeto y así lo podamos usar para otras cosas
-calorias_diarias<- metabolismo_basal (peso, estatura, edad, respuesta)
-texto_calorias<- print(paste("La cantidad de calorías requeridas diariamente para su metabolismo basal es de: ", calorias_diarias))
-
+ingesta_calorica <- metabolismo_basal (peso, estatura, edad, respuesta)
 #
 # para fraccionar las calorías en cada grupo de alimentos de manera general:
-division_calorias <- function(calorias_diarias){
+division_calorias <- function(ingesta_calorica){
   print("A lo largo del día, entre comidas y colaciones, se recomienda que consumas...")
   # frutas y verduras
-  frutas_y_verduras <- calorias_diarias/2 # se recomienda que 1/2 de los alimentos en una comida sea de frutas y verduras.
+  frutas_y_verduras <- ingesta_calorica/2 # se recomienda que 1/2 de los alimentos en una comida sea de frutas y verduras.
   print (paste (frutas_y_verduras, "calorías de frutas y verduras,"))
-  return(frutas_y_verduras)
   # proteínas y carbohidratos
-  proteinas_y_carbs <- calorias_diarias/4 # se recomienda que 1/4 de los alimentos en una comida sea de proteinas y otro 1/4 de carbohidratos. 
+  proteinas_y_carbs <- ingesta_calorica/4 # se recomienda que 1/4 de los alimentos en una comida sea de proteinas y otro 1/4 de carbohidratos. 
   print (paste (proteinas_y_carbs, "calorías de alimentos fuente de proteínas y"))
   print (paste (proteinas_y_carbs, "calorías de carbohidratos."))
-  return(proteinas_y_carbs)
+  #
+  fyv <- frutas_y_verduras
+  pyc <- proteinas_y_carbs
 }
-division_calorias(calorias_diarias)
-cantidad_calorias
-#### Ocupamos que nos den los valores de frutas y verduras y proteinas y carbs. Si nos da el texto no nos sirve para hacer las tablas y graficas
-#### Como en la parte de arriba que corregí
+division_calorias(ingesta_calorica)
+#
+fyv #cantidad de calorias de frutas y verduras
+pyc #cantidad de calorias de proteinas y carbohidratos
