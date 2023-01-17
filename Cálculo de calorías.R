@@ -38,30 +38,33 @@ metabolismo_basal <- function (peso, estatura, edad, respuesta){
   }
   # cálculo del metabolismo basal 
   if (sexo == "mujer") { 
-    cantidad_calorias <- ((655 + (9.6 * peso)) + ((1.8 * estatura)*(4.7 * edad)) * respuesta)
+    cantidad_calorias <- (((655 + (9.6 * peso)) + ((1.8 * estatura)*(4.7 * edad)) * respuesta))/1000
   } else if (sexo == "hombre") {
-    cantidad_calorias <- ((66 + (13.7 * peso)) + ((5 * estatura)*(6.8 * edad)) * respuesta)
+    cantidad_calorias <- (((66 + (13.7 * peso)) + ((5 * estatura)*(6.8 * edad)) * respuesta))/1000
   }
- print(paste("La cantidad de calorías requeridas diariamente para su metabolismo basal es de: ", cantidad_calorias))
- ingesta_calorica <- cantidad_calorias
+  print(paste("La cantidad de kCa requeridas diariamente para su metabolismo basal es de: ", cantidad_calorias))
+  ingesta_calorica <- cantidad_calorias
 }
 ingesta_calorica <- metabolismo_basal (peso, estatura, edad, respuesta)
 #
 # para fraccionar las calorías en cada grupo de alimentos de manera general:
-division_calorias <- function(ingesta_calorica){
+# en frutas y verduras
+division_calorias_frutas_y_verduras <- function(ingesta_calorica){
   print("A lo largo del día, entre comidas y colaciones, se recomienda que consumas...")
   # frutas y verduras
   frutas_y_verduras <- ingesta_calorica/2 # se recomienda que 1/2 de los alimentos en una comida sea de frutas y verduras.
   print (paste (frutas_y_verduras, "calorías de frutas y verduras,"))
+  return(frutas_y_verduras)
+}
+division_calorias_frutas_y_verduras(ingesta_calorica)
   # proteínas y carbohidratos
+division_calorias_proteinas_y_carbs <- function(ingesta_calorica){
   proteinas_y_carbs <- ingesta_calorica/4 # se recomienda que 1/4 de los alimentos en una comida sea de proteinas y otro 1/4 de carbohidratos. 
   print (paste (proteinas_y_carbs, "calorías de alimentos fuente de proteínas y"))
   print (paste (proteinas_y_carbs, "calorías de carbohidratos."))
-  #
-  fyv <- frutas_y_verduras
-  pyc <- proteinas_y_carbs
-}
-division_calorias(ingesta_calorica)
-#
-fyv #cantidad de calorias de frutas y verduras
-pyc #cantidad de calorias de proteinas y carbohidratos
+  return (proteinas_y_carbs)
+}   
+division_calorias_proteinas_y_carbs(ingesta_calorica)
+ingesta_calorica
+#calorías a kCa
+
