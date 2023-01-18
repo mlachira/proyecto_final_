@@ -42,7 +42,7 @@ metabolismo_basal <- function (peso, estatura, edad, respuesta){
   } else if (sexo == "hombre") {
     cantidad_calorias <- (((66 + (13.7 * peso)) + ((5 * estatura)*(6.8 * edad)) * respuesta))/1000
   }
-  print(paste("La cantidad de kCa requeridas diariamente para su metabolismo basal es de: ", cantidad_calorias))
+  print(paste("La cantidad de kcal requeridas diariamente para su metabolismo basal es de: ", cantidad_calorias))
   ingesta_calorica <- cantidad_calorias
 }
 ingesta_calorica <- metabolismo_basal (peso, estatura, edad, respuesta)
