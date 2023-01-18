@@ -4,7 +4,7 @@
   #Peso en gramos de cada alimento.
 
 
-### NOTA: se ejecutaron las mismas funciones para todos los tipos de alimentos, con el primero que se describe aqui (alimentos de origen animal) siendo el unico comentado ya que los comentarios son los mismos para todas las otras bases, con los nombres siendo lo unico que cambia ###
+### NOTA: se ejecutaron las mismas funciones para todos los tipos de alimentos, como el primero que se describe a continuación (alimentos de origen animal). De este modo, es el unico comentado ya que los comentarios son los mismos para todas las otras bases, donde lo unico que cambia son los nombres###
 
 ###### ALIMENTO ORIGEN ANIMAL ######
 
@@ -1512,8 +1512,11 @@ gtcars %>%
 ### Ejemplo de comparacion que podriamos usar para que se compare lo que se obtuvo de resumen del d?a, con los valores que debio de obtener de acuerdo a su perfil (establecido en el script de "calculo de calorias")
 
 #install.packages("devtools")
+install.packages("devtools")
 #devtools::install_github("renkun-ken/formattable")
+installed.packages("renkun-ken/formattable")
 #install.packages("formattable")
+install.packages("formattable")
 library(formattable)
 
 df <- data.frame(
