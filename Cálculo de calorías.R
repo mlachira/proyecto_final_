@@ -38,9 +38,9 @@ metabolismo_basal <- function (peso, estatura, edad, respuesta){
   }
   # cálculo del metabolismo basal 
   if (sexo == "mujer") { 
-    cantidad_calorias <- (((655 + (9.6 * peso)) + ((1.8 * estatura)*(4.7 * edad)) * respuesta))/1000
+    cantidad_calorias <- (655 + (9.6 * peso)) + ((1.8 * estatura)-(4.7 * edad)) * respuesta
   } else if (sexo == "hombre") {
-    cantidad_calorias <- (((66 + (13.7 * peso)) + ((5 * estatura)*(6.8 * edad)) * respuesta))/1000
+    cantidad_calorias <- (66 + (13.7 * peso)) + ((5 * estatura)-(6.8 * edad)) * respuesta
   }
   print(paste("La cantidad de kcal requeridas diariamente para su metabolismo basal es de: ", cantidad_calorias))
   ingesta_calorica <- cantidad_calorias
