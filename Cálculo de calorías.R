@@ -22,7 +22,7 @@ metabolismo_basal <- function (peso, estatura, edad, respuesta){
   #   - moderado (si realizas ejercicio de 3 a 5 veces por semana)
   #   - intenso (si realizas ejercicio de 6 a 7 veces por semana)
   #   - profesional (si realizas entrenamientos de más de 4 horas diarias)
-  # Y la cifra correspondiente al factor de actividad varía dependiendo del nivel de actividad física.
+  # Y la cifra correspondiente al factor de actividad varía dependiendo del nivel de actividad física que la persona tenga.
   # Para asignarlo dependiendo del caso, se usará el condicional "if":
   respuesta_1 <- readline (prompt = "Ingresa el nivel de actividad física que realizas: ")
   if (respuesta_1 == "sedentario"){
@@ -36,7 +36,7 @@ metabolismo_basal <- function (peso, estatura, edad, respuesta){
   } else if (respuesta_1 == "profesional"){
     respuesta <- 1.9
   }
-  # cálculo del metabolismo basal 
+  # cálculo del metabolismo basal con la fórmula de Harris-Benedict
   if (sexo == "mujer") { 
     cantidad_calorias <- (655 + (9.6 * peso)) + ((1.8 * estatura)-(4.7 * edad)) * respuesta
   } else if (sexo == "hombre") {
@@ -53,18 +53,17 @@ division_calorias_frutas_y_verduras <- function(ingesta_calorica){
   print("A lo largo del día, entre comidas y colaciones, se recomienda que consumas...")
   # frutas y verduras
   frutas_y_verduras <- ingesta_calorica/2 # se recomienda que 1/2 de los alimentos en una comida sea de frutas y verduras.
-  print (paste (frutas_y_verduras, "calorías de frutas y verduras,"))
+  print (paste (frutas_y_verduras, "calorías de frutas y verduras,")) #para que en la consola imprima la leyenda y cantidad de kcal diarias recomendadas de frutas y verduras
   return(frutas_y_verduras)
 }
-division_calorias_frutas_y_verduras(ingesta_calorica)
+kcal_fyv <- division_calorias_frutas_y_verduras(ingesta_calorica) #asigna a un objeto la cantidad de kcal recomendadas correspondientes a frutas y verduras
   # proteínas y carbohidratos
 division_calorias_proteinas_y_carbs <- function(ingesta_calorica){
   proteinas_y_carbs <- ingesta_calorica/4 # se recomienda que 1/4 de los alimentos en una comida sea de proteinas y otro 1/4 de carbohidratos. 
-  print (paste (proteinas_y_carbs, "calorías de alimentos fuente de proteínas y"))
-  print (paste (proteinas_y_carbs, "calorías de carbohidratos."))
+  print (paste (proteinas_y_carbs, "calorías de alimentos fuente de proteínas y")) #para que en la consola imprima la leyenda y cantidad de kcal diarias recomendadas de proteinas saludables
+  print (paste (proteinas_y_carbs, "calorías de carbohidratos.")) #para que en la consola imprima la leyenda y cantidad de kcal diarias recomendadas de carbohidratos
   return (proteinas_y_carbs)
 }   
-division_calorias_proteinas_y_carbs(ingesta_calorica)
-ingesta_calorica
+kcal_pyc <- division_calorias_proteinas_y_carbs(ingesta_calorica) #asigna a un objeto la cantidad de kcal recomendadas correspondientes a proteinas y carbohidratos
 
 
