@@ -1455,9 +1455,11 @@ dia_1 <- dia_prueba()
 
 #instale estos paquetes para la tabla:
   # install.packages("gtExtras")
+install.packages("gtExtras")
   # remotes::install_github("jthomasmock/gtExtras")
+install.packages("jthomasmock/gtExtras")
   # install.packages("tidyverse")
-
+install.packages("tidyverse")
 #Y cargue las librerias necesarias
 library(gtExtras)
 library(gt)
