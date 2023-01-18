@@ -1450,7 +1450,6 @@ comidas_prueba <- rbind(comidas_prueba, Cena)
 return(print(comidas_prueba))}
 
 dia_1 <- dia_prueba()
-
 #para generar un plot con una tabla que incluya todos los datos del dia
 
 #instale estos paquetes para la tabla:
@@ -1544,3 +1543,18 @@ formattable(df, list(
                          style = x ~ style(color = ifelse(x, "green", "red")),
                          x ~ icontext(ifelse(x, "ok", "remove"), ifelse(x, "Yes", "No")))
 ))
+
+## Comparacion de kcal recomendadas vs consumidas
+ingesta_calorica #estas son las kcal recomendadas
+tabla_kcal_consumidas <- head(dia_1) %>% #asigna la tabla a un objeto
+  gt() %>% 
+  gt_theme_nytimes() %>%
+tabla_kcal_consumidas #se corre para confirmar la tabla
+
+select(tabla_kcal_consumidas, kcal)
+tabla_kcal_consumidas [1,2]
+tabla_kcal_consumidas_1<- as.matrix(tabla_kcal_consumidas)
+tabla_kcal_consumidas_1
+tabla_kcal_consumidas_1[2,2]
+select.list(tabla_kcal_consumidas, kcal)
+sum(tabla_kcal_consumidas[kcal])

@@ -66,4 +66,23 @@ division_calorias_proteinas_y_carbs <- function(ingesta_calorica){
 }   
 kcal_pyc <- division_calorias_proteinas_y_carbs(ingesta_calorica) #asigna a un objeto la cantidad de kcal recomendadas correspondientes a proteinas y carbohidratos
 
-
+##### gráfico pastel 
+# el paquete necesario debe ser instalado:
+install.packages("plotrix")
+library(plotrix) #se carga el paquete
+#corroborando que sean objetos de clase numerica:
+class(ingesta_calorica) 
+class(kcal_fyv)
+class(kcal_pyc)
+#se usara la funcion pie3D
+calorias <- c(kcal_fyv, kcal_pyc, kcal_pyc)
+lbls <- c("Frutas y Verduras", "                 Proteínas                Carbohidratos", ".")
+pie3D_kcal <- pie3D(calorias, radius = 4.5, labels=lbls, 
+      height = 0.4, #altura
+      explode = 0.2, theta = 0.6, #efecto de explosion del grafico
+      main="Plato para comer saludable", #para el titulo
+      border = "white", #el borde de los trozos
+      col = c("olivedrab2", "navajowhite2", "orange3"), #color de cada trozo/seccion
+      shade = 0.5, #la sombra del grafico
+      labelcex = 1 #tamaño de las etiquetas
+      )
