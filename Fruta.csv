@@ -1,4 +1,4 @@
-Alimentos,kcal,Proteínas,Carbohidratos,Grasas
+Alimentos,kcal,Proteinas,Carbohidratos,Grasas
 Arandanos,57,1,14,0
 Blueberries,57,1,12,0
 Cereza,63,1,16,0
@@ -15,7 +15,7 @@ Mamey,124,1,32,0
 Mandarina,53,1,13,0
 Mango ,60,1,15,0
 Manzana,52,0,14,0
-Melón,34,1,8,0
+Melon,34,1,8,0
 Moras,43,1,10,0
 Naranja,46,1,12,0
 Toronja,42,1,11,0
@@ -23,8 +23,9 @@ Papaya,43,0,11,0
 Pasas,299,3,79,0
 Pera,57,0,15,0
 Piña,50,1,13,0
-Plátano,89,1,23,0
-Plátano macho,122,1,32,0
-Sandía,30,1,8,0
+Platano,89,1,23,0
+Platano macho,122,1,32,0
+Sandia,30,1,8,0
 Tuna,41,1,10,1
 Uva,69,1,18,0
+Nada,0,0,0,0
