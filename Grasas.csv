@@ -1,4 +1,4 @@
-Alimentos,kcal,Proteínas,Carbohidratos,Grasas
+Alimentos,kcal,Proteinas,Carbohidratos,Grasas
 Aceite,884,0,0,100
 Aceitunas,116,1,6,11
 Aguacate,160,2,9,15
@@ -7,3 +7,4 @@ Mantequilla,717,1,0,81
 Margarina,717,0,1,81
 Queso crema,350,6,6,34
 Tocino,437,15,0,41
+Nada,0,0,0,0

@@ -1,4 +1,4 @@
-Alimentos,kcal,Proteínas,Carbohidratos,Grasas
+Alimentos,kcal,Proteinas,Carbohidratos,Grasas
 Amaranto,23,2,4,0
 Arroz integral,123,3,26,1
 Arozz blanco,130,3,28,0
@@ -12,7 +12,7 @@ Cereal ,357,8,84,0
 Crutones,407,12,74,7
 Elote,104,3,28,1
 Espaguetti,345,11,73,1
-Galleta María ,391,6,72,9
+Galleta Maria ,391,6,72,9
 Galleta salmas,400,17,83,0
 Granola,408,9,72,11
 Hot cakes,233,5,38,7
@@ -21,5 +21,6 @@ Palomitas naturales,403,10,53,17
 Pan de caja,258,9,42,6
 Papa,87,2,20,0
 Pasta,158,6,31,1
-Tortilla de maíz,218,6,45,3
+Tortilla de maiz,218,6,45,3
 Tortilla de harina,291,8,48,7
+Nada,0,0,0,0

@@ -1,7 +1,7 @@
-Alimentos,kcal,Proteínas,Carbohidratos,Grasas
-Atún,192,31,0,7
+Alimentos,kcal,Proteinas,Carbohidratos,Grasas
+Atun,192,31,0,7
 Mejillones,171,24,7,4
-Camarón,113,27,0,1
+Camaron,113,27,0,1
 Pulpo,164,30,4,2
 Pescado,155,26,0,5
 Filete de cerdo,120,20,2,4
@@ -25,3 +25,4 @@ Queso de cabara,360,24,1,29
 Jamon de pavo,143,20,3,4
 Salami,336,22,2,26
 Salchicha,269,13,0,24
+Nada,0,0,0,0
