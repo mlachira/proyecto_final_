@@ -181,8 +181,8 @@ prueba_alimentos<- function(){
     return(print(alimento))
   }
 }
-alimento_animal<- prueba_alimentos()
-alimento_animal
+
+
 #######Fruta ###########
 prueba_fruta<-function(){
   cantidad_de_fruta<- readline(prompt = "Ingresa el numero de frutas: ")
@@ -491,8 +491,6 @@ prueba_fruta<-function(){
     names(fruta)<- nombres
     return(print(fruta))}
 }
-alimento_fruta<- prueba_fruta()
-alimento_fruta
 
 
 
@@ -809,7 +807,6 @@ prueba_verdura<-function(){
 alimento_verdura<-prueba_verdura()
 alimento_verdura
 
-######Checar 4 #########
 
 
 ######## LEGUMINOSAS #######
@@ -950,8 +947,7 @@ prueba_leguminosa<- function(){
     return(print(leguminosa))
   }
 }
-alimento_leguminosa<- prueba_leguminosa()
-alimento_leguminosa
+
 
 ######## GRASAS CON PROTEINA ######
 grasas_con_proteinas
@@ -1091,9 +1087,6 @@ pruebas_grasas_proteina<- function(){
       return(print(grasas_proteina))
     }
 }
-alimento_grasas_proteina<-pruebas_grasas_proteina()
-alimento_grasas_proteina
-
 
 
 
@@ -1235,8 +1228,6 @@ prueba_grasas<- function (){
     return(print(grasa))
   }
 }
-alimento_grasas<- prueba_grasas()
-alimento_grasas
 
 
 ####### AZUCAR #######
@@ -1316,13 +1307,12 @@ prueba_azucar<-function(){
     return(print(azucar_1))
   }
 }
-alimento_azucar<-prueba_azucar()
-alimento_azucar
+
 
 ######Checar el 2 #######
 
 #Hago una tabla en blanco con data.frame.
-#Una tabla equivale a un dÃ­a
+#Una tabla equivale a un dÃ­a en el que van a preguntar que comiste de los grupos alimenticios en el desayuno, colaciÃ³n 1, comida, colacion 2 y cena
 dia_prueba<-function(){
 comidas_prueba<- data.frame(comidas= character(),
                              kcal = numeric(),
@@ -1481,7 +1471,7 @@ library(glue)
 head(comidas_prueba) %>% 
   gt() %>% 
   gt_theme_nytimes() %>%
-  tab_header(title = "Resumen día 1")
+  tab_header(title = "Resumen d?a 1")
 
   ### OPCION 2
 head(comidas_prueba) %>%
@@ -1518,7 +1508,7 @@ gtcars %>%
   )
 
 
-### Ejemplo de comparacion que podriamos usar para que se compare lo que se obtuvo de resumen del día, con los valores que debio de obtener de acuerdo a su perfil (establecido en el script de "calculo de calorias")
+### Ejemplo de comparacion que podriamos usar para que se compare lo que se obtuvo de resumen del d?a, con los valores que debio de obtener de acuerdo a su perfil (establecido en el script de "calculo de calorias")
 
 #install.packages("devtools")
 #devtools::install_github("renkun-ken/formattable")
