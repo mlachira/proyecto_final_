@@ -509,7 +509,7 @@ prueba_verdura<-function(){
     kcal_totales_verd1 <- (n_kcal_alimento_dieta_verd1*n_porcion_verd1)/100
     kcal_totales_verd1
     #Saca las proteinas 
-    proteina_alimento_dieta_verd1 <- verduras[alimento_dieta_verd1, "Proteínas"]
+    proteina_alimento_dieta_verd1 <- verduras[alimento_dieta_verd1, "Proteinas"]
     n_proteina_alimento_dieta_verd1 <- as.numeric(proteina_alimento_dieta_verd1)
     n_proteina_totales_verd1 <- (n_proteina_alimento_dieta_verd1*n_porcion_verd1)/100
     #Saca los carbohidratos
@@ -822,7 +822,7 @@ prueba_leguminosa<- function(){
     kcal_totales_leguminosas1<- (n_kcal_alimento_dieta_leguminosas1*n_porcion_leguminosas1)/100
     kcal_totales_leguminosas1
     #Saca las proteinas 
-    proteina_alimento_dieta_leguminosas1<-leguminosas[alimento_dieta_leguminosas1, "Prote?nas"]
+    proteina_alimento_dieta_leguminosas1<-leguminosas[alimento_dieta_leguminosas1, "Proteinas"]
     n_proteina_alimento_dieta_leguminosas1<- as.numeric(proteina_alimento_dieta_leguminosas1)
     proteina_totales_leguminosas1<- (n_proteina_alimento_dieta_leguminosas1*n_porcion_leguminosas1)/100
     #Saca los carbohidratos
@@ -1526,7 +1526,6 @@ df <- data.frame(
   registered = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE),
   stringsAsFactors = FALSE)
 df
-
 
 formattable(df, list(
   age = color_tile("white", "orange"),
