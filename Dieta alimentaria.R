@@ -1,151 +1,180 @@
-#Para calcular las kcal, proteinas, carbohidratos y grasas que se consumen diario se le pide que llene lo que se le pide. 
-#Se recomienda imprimir la base de datos de origen animal para saber cuales alimentos se encuentran en esta y como se deben de escribir.
+#Para calcular las kcal, proteinas, carbohidratos y grasas que se consumen diario se le pide al usuario que ingrese los siguientes datos:
+  #Numero de alimentos de cada grupo que consumio.
+  #Nombre del alimento.
+  #Peso en gramos de cada alimento.
 
-######ALIMENTO ORIGEN ANIMAL######
-#Para imprimir la tabla
+
+### NOTA: se ejecutaron las mismas funciones para todos los tipos de alimentos, con el primero que se describe aqui (alimentos de origen animal) siendo el unico comentado ya que los comentarios son los mismos para todas las otras bases, con los nombres siendo lo unico que cambia ###
+
+###### ALIMENTO ORIGEN ANIMAL ######
+
+#Se recomienda imprimir la base de datos de origen animal para saber cuales alimentos se encuentran en esta y como se deben de escribir.
+#Para imprimirla:
 alimento_origen_animal
 
-
-#Quite function porque no te regresa el objeto alimento
+#El maximo de alimentos que se pueden introducir en este grupo, es de 3
+#Se uso "function" asignado a un objeto para encapsular las funciones que usamos.
+#Cabe aclarar que la base de datos considera el numero de kcal, proteinas, carbohidratos y grasas para 100 gramos, con el ajuste que se realiza para los gramos que el usuario intruduce, explicado dentro de la funcion
 
 prueba_alimentos<- function(){
-  cantidad_de_oa<- readline(prompt = "Ingresa el numero de alimentos de origen animal: ")
-  cantidad_oa<- as.numeric(cantidad_de_oa)
+  cantidad_de_oa<- readline(prompt = "Ingresa el numero de alimentos de origen animal: ") #se arroja este texto en la consola para que el usuario conteste.
+  cantidad_oa<- as.numeric(cantidad_de_oa) #para que considere como variable numerica el numero de alimentos introducido
+  #Si ingresa solo un alimento:
   if(cantidad_oa==1){
     #Saca las kcal
-    alimento_dieta_oa1<-readline(prompt = "Ingresa alimento de origen animal 1: ")
-    kcal_alimento_dieta_oa1<- alimento_origen_animal[alimento_dieta_oa1, "kcal"]
-    n_kcal_alimento_dieta_oa1<-as.numeric(kcal_alimento_dieta_oa1)
-    porcion_alimento1<- readline(prompt = "Ingresa el peso en gr: ")
-    n_porcion_alimento1<-as.numeric(porcion_alimento1)
-    kcal_totales_oa1<- (n_kcal_alimento_dieta_oa1*n_porcion_alimento1)/100
-    kcal_totales_oa1
+    alimento_dieta_oa1<-readline(prompt = "Ingresa el alimento de origen animal 1: ") #se arroja este texto en la consola para que el usuario conteste.
+    kcal_alimento_dieta_oa1<- alimento_origen_animal[alimento_dieta_oa1, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto.
+    n_kcal_alimento_dieta_oa1<-as.numeric(kcal_alimento_dieta_oa1) #para que considere como variable numerica el objeto de arriba (las kcal).
+    porcion_alimento1<- readline(prompt = "Ingresa su peso en gramos: ") #se arroja este texto en la consola para que el usuario conteste.
+    n_porcion_alimento1<-as.numeric(porcion_alimento1) #para que considere como variable numerica el objeto de arriba (los gramos).
+    kcal_totales_oa1 <- (n_kcal_alimento_dieta_oa1*n_porcion_alimento1)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    kcal_totales_oa1 #lo imprime
     #Saca las proteinas 
-    proteina_alimento_dieta_oa1<-alimento_origen_animal[alimento_dieta_oa1, "Proteínas"]
-    n_proteina_alimento_dieta_oa1<- as.numeric(proteina_alimento_dieta_oa1)
-    n_proteina_totales_oa1<- (n_proteina_alimento_dieta_oa1*n_porcion_alimento1)/100
+    proteina_alimento_dieta_oa1<-alimento_origen_animal[alimento_dieta_oa1, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto.
+    n_proteina_alimento_dieta_oa1<- as.numeric(proteina_alimento_dieta_oa1) #para que considere como variable numerica el objeto de arriba (las proteinas).
+    n_proteina_totales_oa1<- (n_proteina_alimento_dieta_oa1*n_porcion_alimento1)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
     #Saca los carbohidratos
-    carbohidratos_alimento_dieta_oa1<- alimento_origen_animal[alimento_dieta_oa1, "Carbohidratos"]
-    n_carbohidratos_alimento_dieta_oa1<-as.numeric(carbohidratos_alimento_dieta_oa1)
-    n_carbohidratos_totales_oa1<- (n_carbohidratos_alimento_dieta_oa1*n_porcion_alimento1)/100
+    carbohidratos_alimento_dieta_oa1<- alimento_origen_animal[alimento_dieta_oa1, "Carbohidratos"] #pide que de la base de datos, seleccione los carbohidratos del alimento que se introdujo y eso lo asigna a un objeto.
+    n_carbohidratos_alimento_dieta_oa1<-as.numeric(carbohidratos_alimento_dieta_oa1) #para que considere como variable numerica el objeto de arriba (los carbohidratos).
+    n_carbohidratos_totales_oa1<- (n_carbohidratos_alimento_dieta_oa1*n_porcion_alimento1)/100 #multiplica los carbohidratos del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de carbohidratos de la base es para 100g, haciendose una regla de 3 para el ajuste.
     #Saca las grasas
-    grasas_alimento_dieta_oa1<- alimento_origen_animal[alimento_dieta_oa1, "Grasas"]
-    n_grasas_alimento_dieta_oa1<- as.numeric(grasas_alimento_dieta_oa1)
-    n_grasas_totales_oa1<- (n_grasas_alimento_dieta_oa1*n_porcion_alimento1)/100
-    alimento<-c(kcal_totales_oa1, n_proteina_totales_oa1, n_carbohidratos_totales_oa1, n_grasas_totales_oa1 )
-    nombres<- c("kcal","proteina","carbohidratos","grasas")
-    names(alimento)<-nombres
-    return(print(alimento))
-  }else if (cantidad_oa==2){
+    grasas_alimento_dieta_oa1<- alimento_origen_animal[alimento_dieta_oa1, "Grasas"] #pide que de la base de datos, seleccione las grasas del alimento que se introdujo y eso lo asigna a un objeto.
+    n_grasas_alimento_dieta_oa1<- as.numeric(grasas_alimento_dieta_oa1)#para que considere como variable numerica el objeto de arriba (las grasas).
+    n_grasas_totales_oa1<- (n_grasas_alimento_dieta_oa1*n_porcion_alimento1)/100 #multiplica las grasas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de grasas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    alimento<-c(kcal_totales_oa1, n_proteina_totales_oa1, n_carbohidratos_totales_oa1, n_grasas_totales_oa1 ) #concatena las kcal, proteinas, carbohidratos y grasas obtenidas arriba.
+    nombres<- c("kcal","proteina","carbohidratos","grasas") #se crea un objeto con los nombres de kcal, proteina, carbohidratos y grasas.
+    names(alimento)<-nombres #el objeto "nombres" es asignado al de "alimento"
+    return(print(alimento)) #que imprima "alimento", lo cual arroja los numeros obtenidos y sus respectivos nombres (kcal, proteinas, carbohidratos y grasas).
+  }else if (cantidad_oa==2){   #esto se ejecuta si se ingresan dos alimentos
     #Saca las kcal
-    alimento_dieta_oa2.1<-readline(prompt = "Ingresa alimento de origen animal 1: ")
-    kcal_alimento_dieta_oa2.1<- alimento_origen_animal[alimento_dieta_oa2.1, "kcal"]
-    n_kcal_alimento_dieta_oa2.1<-as.numeric(kcal_alimento_dieta_oa2.1)
-    porcion_alimento2.1<- readline(prompt = "Ingresa el peso en gr del alimento de origen animal 1: ")
-    n_porcion_alimento2.1<-as.numeric(porcion_alimento2.1)
-    kcal_oa2.1<- (n_kcal_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100
+      #Del alimento 1
+    alimento_dieta_oa2.1<-readline(prompt = "Ingresa alimento de origen animal 1: ") #se arroja este texto en la consola para que el usuario conteste.
+    kcal_alimento_dieta_oa2.1<- alimento_origen_animal[alimento_dieta_oa2.1, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto para el alimento 1.
+    n_kcal_alimento_dieta_oa2.1<-as.numeric(kcal_alimento_dieta_oa2.1)  #para que considere como variable numerica el objeto de arriba (las kcal).
+    porcion_alimento2.1<- readline(prompt = "Ingresa el peso en gramos del alimento de origen animal 1: ") #se arroja este texto en la consola para que el usuario conteste.
+    n_porcion_alimento2.1<-as.numeric(porcion_alimento2.1) #para que considere como variable numerica el objeto de arriba (los gramos).
+    kcal_oa2.1<- (n_kcal_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
     kcal_oa2.1
-    alimento_dieta_oa2.2<-readline(prompt = "Ingresa alimento de origen animal 2: ")
-    kcal_alimento_dieta_oa2.2<- alimento_origen_animal[alimento_dieta_oa2.2, "kcal"]
-    n_kcal_alimento_dieta_oa2.2<-as.numeric(kcal_alimento_dieta_oa2.2)
-    porcion_alimento2.2<- readline(prompt = "Ingresa el peso en gr del alimento de origen animal 2: ")
-    n_porcion_alimento2.2<-as.numeric(porcion_alimento2.2)
-    kcal_oa2.2<- (n_kcal_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100
-    kcal_oa2.2
-    kcal_totales_oa2<- kcal_oa2.1+kcal_oa2.2
-    kcal_totales_oa2
+      #Del alimento 2
+    alimento_dieta_oa2.2<-readline(prompt = "Ingresa alimento de origen animal 2: ") #se arroja este texto en la consola para que el usuario conteste.
+    kcal_alimento_dieta_oa2.2<- alimento_origen_animal[alimento_dieta_oa2.2, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto para el alimento 2.
+    n_kcal_alimento_dieta_oa2.2<-as.numeric(kcal_alimento_dieta_oa2.2)  #para que considere como variable numerica el objeto de arriba (las kcal).
+    porcion_alimento2.2<- readline(prompt = "Ingresa el peso en gramos del alimento de origen animal 2: ") #se arroja este texto en la consola para que el usuario conteste.
+    n_porcion_alimento2.2<-as.numeric(porcion_alimento2.2) #para que considere como variable numerica el objeto de arriba (los gramos).
+    kcal_oa2.2<- (n_kcal_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    kcal_oa2.2 #lo imprime
+    kcal_totales_oa2<- kcal_oa2.1+kcal_oa2.2 #suma las kcal del alimento 1 y del alimento 2.
+    kcal_totales_oa2 #lo imprime
     #Saca la proteina
-    proteina_alimento_dieta_oa2.1<-alimento_origen_animal[alimento_dieta_oa2.1, "Proteínas"]
-    n_proteina_alimento_dieta_oa2.1<- as.numeric(proteina_alimento_dieta_oa2.1)
-    n_proteina_totales_oa2.1<- (n_proteina_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100
-    proteina_alimento_dieta_oa2.2<-alimento_origen_animal[alimento_dieta_oa2.2, "Proteínas"]
-    n_proteina_alimento_dieta_oa2.2<- as.numeric(proteina_alimento_dieta_oa2.2)
-    n_proteina_totales_oa2.2<- (n_proteina_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100
-    proteina_totales_oa2<- n_proteina_totales_oa2.1 + n_proteina_totales_oa2.2
+      #Del alimento 1
+    proteina_alimento_dieta_oa2.1<-alimento_origen_animal[alimento_dieta_oa2.1, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 1.
+    n_proteina_alimento_dieta_oa2.1<- as.numeric(proteina_alimento_dieta_oa2.1) #para que considere como variable numerica el objeto de arriba (las proteinas).
+    n_proteina_totales_oa2.1<- (n_proteina_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 2
+    proteina_alimento_dieta_oa2.2<-alimento_origen_animal[alimento_dieta_oa2.2, "Proteínas"]#pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 2.
+    n_proteina_alimento_dieta_oa2.2<- as.numeric(proteina_alimento_dieta_oa2.2)#para que considere como variable numerica el objeto de arriba (las proteinas).
+    n_proteina_totales_oa2.2<- (n_proteina_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    proteina_totales_oa2<- n_proteina_totales_oa2.1 + n_proteina_totales_oa2.2 #suma las proteinas de ambos alimentos.
     #Saca los carbohidratos
-    carbohidratos_alimento_dieta_oa2.1<- alimento_origen_animal[alimento_dieta_oa2.1, "Carbohidratos"]
-    n_carbohidratos_alimento_dieta_oa2.1<-as.numeric(carbohidratos_alimento_dieta_oa2.1)
-    n_carbohidratos_totales_oa2.1<- (n_carbohidratos_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100
-    carbohidratos_alimento_dieta_oa2.2<- alimento_origen_animal[alimento_dieta_oa2.2, "Carbohidratos"]
-    n_carbohidratos_alimento_dieta_oa2.2<-as.numeric(carbohidratos_alimento_dieta_oa2.2)
-    n_carbohidratos_totales_oa2.2<- (n_carbohidratos_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100
-    carbohidrato_totales_oa2<- n_carbohidratos_totales_oa2.1 + n_carbohidratos_totales_oa2.2
+      #Del alimento 1
+    carbohidratos_alimento_dieta_oa2.1<- alimento_origen_animal[alimento_dieta_oa2.1, "Carbohidratos"] #pide que de la base de datos, seleccione los carbohidratos del alimento que se introdujo y eso lo asigna a un objeto.
+    n_carbohidratos_alimento_dieta_oa2.1<-as.numeric(carbohidratos_alimento_dieta_oa2.1) #para que considere como variable numerica el objeto de arriba (los carbohidratos).
+    n_carbohidratos_totales_oa2.1<- (n_carbohidratos_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100 #multiplica los carbohidratos del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de carbohidratos de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 2
+    carbohidratos_alimento_dieta_oa2.2<- alimento_origen_animal[alimento_dieta_oa2.2, "Carbohidratos"] #pide que de la base de datos, seleccione los carbohidratos del alimento que se introdujo y eso lo asigna a un objeto.
+    n_carbohidratos_alimento_dieta_oa2.2<-as.numeric(carbohidratos_alimento_dieta_oa2.2) #para que considere como variable numerica el objeto de arriba (los carbohidratos).
+    n_carbohidratos_totales_oa2.2<- (n_carbohidratos_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100 #multiplica los carbohidratos del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de carbohidratos de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    carbohidrato_totales_oa2<- n_carbohidratos_totales_oa2.1 + n_carbohidratos_totales_oa2.2 #suma los carbohidratos de ambos alimentos
     #Saca las grasas
-    grasas_alimento_dieta_oa2.1<- alimento_origen_animal[alimento_dieta_oa2.1, "Grasas"]
-    n_grasas_alimento_dieta_oa2.1<- as.numeric(grasas_alimento_dieta_oa2.1)
-    n_grasas_totales_oa2.1<- (n_grasas_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100
-    grasas_alimento_dieta_oa2.2<- alimento_origen_animal[alimento_dieta_oa2.2, "Grasas"]
-    n_grasas_alimento_dieta_oa2.2<- as.numeric(grasas_alimento_dieta_oa2.2)
-    n_grasas_totales_oa2.2<- (n_grasas_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100
-    grasas_totales_oa2<- n_grasas_totales_oa2.1 + n_grasas_totales_oa2.2
+      #Del alimento 1
+    grasas_alimento_dieta_oa2.1<- alimento_origen_animal[alimento_dieta_oa2.1, "Grasas"] #pide que de la base de datos, seleccione las grasas del alimento que se introdujo y eso lo asigna a un objeto.
+    n_grasas_alimento_dieta_oa2.1<- as.numeric(grasas_alimento_dieta_oa2.1) #para que considere como variable numerica el objeto de arriba (las grasas).
+    n_grasas_totales_oa2.1<- (n_grasas_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100 #multiplica las grasas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de grasas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 2
+    grasas_alimento_dieta_oa2.2<- alimento_origen_animal[alimento_dieta_oa2.2, "Grasas"] #pide que de la base de datos, seleccione las grasas del alimento que se introdujo y eso lo asigna a un objeto.
+    n_grasas_alimento_dieta_oa2.2<- as.numeric(grasas_alimento_dieta_oa2.2) #para que considere como variable numerica el objeto de arriba (las grasas).
+    n_grasas_totales_oa2.2<- (n_grasas_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100 #multiplica las grasas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de grasas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    grasas_totales_oa2<- n_grasas_totales_oa2.1 + n_grasas_totales_oa2.2 #suma las grasas de ambos alimentos
     alimento<- c(kcal_totales_oa2, proteina_totales_oa2, carbohidrato_totales_oa2, grasas_totales_oa2)
     nombres<- c("kcal","proteina","carbohidratos","grasas")
     names(alimento)<-nombres
     return(print(alimento))
-  } else if (cantidad_oa==3){
+  } else if (cantidad_oa==3){ #esto se ejecuta si se ingresan 3 alimentos
     #Saca las kcal
-    alimento_dieta_oa3.1<-readline(prompt = "Ingresa alimento de origen animal 1: ")
-    kcal_alimento_dieta_oa3.1<- alimento_origen_animal[alimento_dieta_oa3.1, "kcal"]
-    n_kcal_alimento_dieta_oa3.1<-as.numeric(kcal_alimento_dieta_oa3.1)
+      #Del alimento 1
+    alimento_dieta_oa3.1<-readline(prompt = "Ingresa alimento de origen animal 1: ") #se arroja este texto en la consola para que el usuario conteste.
+    kcal_alimento_dieta_oa3.1<- alimento_origen_animal[alimento_dieta_oa3.1, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto.
+    n_kcal_alimento_dieta_oa3.1<-as.numeric(kcal_alimento_dieta_oa3.1) #para que considere como variable numerica el objeto de arriba (las kcal).
     class(n_kcal_alimento_dieta_oa3.1)
-    porcion_alimento3.1<- readline(prompt = "Ingresa el peso en gr del alimento de origen animal 1: ")
-    n_porcion_alimento3.1<-as.numeric(porcion_alimento3.1)
+    porcion_alimento3.1<- readline(prompt = "Ingresa el peso en gr del alimento de origen animal 1: ") #se arroja este texto en la consola para que el usuario conteste.
+    n_porcion_alimento3.1<-as.numeric(porcion_alimento3.1) #para que considere como variable numerica el objeto de arriba (los gramos).
     class(n_porcion_alimento3.1)
-    kcal_oa3.1<- (n_kcal_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100
+    kcal_oa3.1<- (n_kcal_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
     kcal_oa3.1
-    alimento_dieta_oa3.2<-readline(prompt = "Ingresa alimento de origen animal 2: ")
-    kcal_alimento_dieta_oa3.2<- alimento_origen_animal[alimento_dieta_oa3.2, "kcal"]
-    n_kcal_alimento_dieta_oa3.2<-as.numeric(kcal_alimento_dieta_oa3.2)
+      #Del alimento 2
+    alimento_dieta_oa3.2<-readline(prompt = "Ingresa alimento de origen animal 2: ") #se arroja este texto en la consola para que el usuario conteste.
+    kcal_alimento_dieta_oa3.2<- alimento_origen_animal[alimento_dieta_oa3.2, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto.
+    n_kcal_alimento_dieta_oa3.2<-as.numeric(kcal_alimento_dieta_oa3.2) #para que considere como variable numerica el objeto de arriba (las kcal).
     class(n_kcal_alimento_dieta_oa3.2)
-    porcion_alimento3.2<- readline(prompt = "Ingresa el peso en gr del alimento de origen animal 2: ")
-    n_porcion_alimento3.2<-as.numeric(porcion_alimento3.2)
+    porcion_alimento3.2<- readline(prompt = "Ingresa el peso en gr del alimento de origen animal 2: ") #se arroja este texto en la consola para que el usuario conteste.
+    n_porcion_alimento3.2<-as.numeric(porcion_alimento3.2) #para que considere como variable numerica el objeto de arriba (los gramos).
     class(n_porcion_alimento3.2)
-    kcal_oa3.2<- (n_kcal_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100
+    kcal_oa3.2<- (n_kcal_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
     kcal_oa3.2
-    alimento_dieta_oa3.3<-readline(prompt = "Ingresa alimento de origen animal 3: ")
-    kcal_alimento_dieta_oa3.3<- alimento_origen_animal[alimento_dieta_oa3.3, "kcal"]
-    n_kcal_alimento_dieta_oa3.3<-as.numeric(kcal_alimento_dieta_oa3.3)
+      #Del alimento 3
+    alimento_dieta_oa3.3<-readline(prompt = "Ingresa alimento de origen animal 3: ") #se arroja este texto en la consola para que el usuario conteste.
+    kcal_alimento_dieta_oa3.3<- alimento_origen_animal[alimento_dieta_oa3.3, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto.
+    n_kcal_alimento_dieta_oa3.3<-as.numeric(kcal_alimento_dieta_oa3.3) #para que considere como variable numerica el objeto de arriba (las kcal).
     class(n_kcal_alimento_dieta_oa3.3)
-    porcion_alimento3.3<- readline(prompt = "Ingresa el peso en gr del alimento de origen animal 3: ")
-    n_porcion_alimento3.3<-as.numeric(porcion_alimento3.3)
+    porcion_alimento3.3<- readline(prompt = "Ingresa el peso en gr del alimento de origen animal 3: ") #se arroja este texto en la consola para que el usuario conteste.
+    n_porcion_alimento3.3<-as.numeric(porcion_alimento3.3) #para que considere como variable numerica el objeto de arriba (los gramos).
     class(n_porcion_alimento3.3)
-    kcal_oa3.3<- (n_kcal_alimento_dieta_oa3.2*n_porcion_alimento3.3)/100
-    kcal_oa3.2
-    kcal_totales_oa3<- kcal_oa3.1+kcal_oa3.2+kcal_oa3.3
+    kcal_oa3.3<- (n_kcal_alimento_dieta_oa3.2*n_porcion_alimento3.3)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    kcal_oa3.3
+    kcal_totales_oa3<- kcal_oa3.1+kcal_oa3.2+kcal_oa3.3 #Suma todas las kcal de los 3 alimentos
     kcal_totales_oa3
     #Saca las proteinas
-    proteina_alimento_dieta_oa3.1<-alimento_origen_animal[alimento_dieta_oa3.1, "Proteínas"]
-    n_proteina_alimento_dieta_oa3.1<- as.numeric(proteina_alimento_dieta_oa3.1)
-    n_proteina_totales_oa3.1<- (n_proteina_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100
-    proteina_alimento_dieta_oa3.2<-alimento_origen_animal[alimento_dieta_oa3.2, "Proteínas"]
-    n_proteina_alimento_dieta_oa3.2<- as.numeric(proteina_alimento_dieta_oa3.2)
-    n_proteina_totales_oa3.2<- (n_proteina_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100
-    proteina_alimento_dieta_oa3.3<-alimento_origen_animal[alimento_dieta_oa3.3, "Proteínas"]
-    n_proteina_alimento_dieta_oa3.3<- as.numeric(proteina_alimento_dieta_oa3.3)
-    n_proteina_totales_oa3.3<- (n_proteina_alimento_dieta_oa3.3*n_porcion_alimento3.3)/100
-    proteina_totales_oa3<- n_proteina_totales_oa3.1 + n_proteina_totales_oa3.2 + n_proteina_totales_oa3.3
+      #Del alimento 1
+    proteina_alimento_dieta_oa3.1<-alimento_origen_animal[alimento_dieta_oa3.1, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 1
+    n_proteina_alimento_dieta_oa3.1<- as.numeric(proteina_alimento_dieta_oa3.1) #para que considere como variable numerica el objeto de arriba (las proteinas).
+    n_proteina_totales_oa3.1<- (n_proteina_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 2
+    proteina_alimento_dieta_oa3.2<-alimento_origen_animal[alimento_dieta_oa3.2, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 2
+    n_proteina_alimento_dieta_oa3.2<- as.numeric(proteina_alimento_dieta_oa3.2) #para que considere como variable numerica el objeto de arriba (las proteinas).
+    n_proteina_totales_oa3.2<- (n_proteina_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 3
+    proteina_alimento_dieta_oa3.3<-alimento_origen_animal[alimento_dieta_oa3.3, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 3.
+    n_proteina_alimento_dieta_oa3.3<- as.numeric(proteina_alimento_dieta_oa3.3) #para que considere como variable numerica el objeto de arriba (las proteinas).
+    n_proteina_totales_oa3.3<- (n_proteina_alimento_dieta_oa3.3*n_porcion_alimento3.3)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    proteina_totales_oa3<- n_proteina_totales_oa3.1 + n_proteina_totales_oa3.2 + n_proteina_totales_oa3.3 #suma todas las proteinas de los 3 alimentos
     #Saca los carbohidratos
-    carbohidratos_alimento_dieta_oa3.1<- alimento_origen_animal[alimento_dieta_oa3.1, "Carbohidratos"]
-    n_carbohidratos_alimento_dieta_oa3.1<-as.numeric(carbohidratos_alimento_dieta_oa3.1)
-    n_carbohidratos_totales_oa3.1<- (n_carbohidratos_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100
-    carbohidratos_alimento_dieta_oa3.2<- alimento_origen_animal[alimento_dieta_oa3.2, "Carbohidratos"]
-    n_carbohidratos_alimento_dieta_oa3.2<-as.numeric(carbohidratos_alimento_dieta_oa3.2)
-    n_carbohidratos_totales_oa3.2<- (n_carbohidratos_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100
-    carbohidratos_alimento_dieta_oa3.3<- alimento_origen_animal[alimento_dieta_oa3.3, "Carbohidratos"]
-    n_carbohidratos_alimento_dieta_oa3.3<-as.numeric(carbohidratos_alimento_dieta_oa3.3)
-    n_carbohidratos_totales_oa3.3<- (n_carbohidratos_alimento_dieta_oa3.3*n_porcion_alimento3.3)/100
+      #Del alimento 1
+    carbohidratos_alimento_dieta_oa3.1<- alimento_origen_animal[alimento_dieta_oa3.1, "Carbohidratos"] #pide que de la base de datos, seleccione los carbohidratos del alimento que se introdujo y eso lo asigna a un objeto.
+    n_carbohidratos_alimento_dieta_oa3.1<-as.numeric(carbohidratos_alimento_dieta_oa3.1) #para que considere como variable numerica el objeto de arriba (los carbohidratos).
+    n_carbohidratos_totales_oa3.1<- (n_carbohidratos_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100 #multiplica los carbohidratos del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de carbohidratos de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 2
+    carbohidratos_alimento_dieta_oa3.2<- alimento_origen_animal[alimento_dieta_oa3.2, "Carbohidratos"] #pide que de la base de datos, seleccione los carbohidratos del alimento que se introdujo y eso lo asigna a un objeto.
+    n_carbohidratos_alimento_dieta_oa3.2<-as.numeric(carbohidratos_alimento_dieta_oa3.2) #para que considere como variable numerica el objeto de arriba (los carbohidratos).
+    n_carbohidratos_totales_oa3.2<- (n_carbohidratos_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100 #multiplica los carbohidratos del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de carbohidratos de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 3
+    carbohidratos_alimento_dieta_oa3.3<- alimento_origen_animal[alimento_dieta_oa3.3, "Carbohidratos"] #pide que de la base de datos, seleccione los carbohidratos del alimento que se introdujo y eso lo asigna a un objeto.
+    n_carbohidratos_alimento_dieta_oa3.3<-as.numeric(carbohidratos_alimento_dieta_oa3.3) #para que considere como variable numerica el objeto de arriba (los carbohidratos).
+    n_carbohidratos_totales_oa3.3<- (n_carbohidratos_alimento_dieta_oa3.3*n_porcion_alimento3.3)/100 #multiplica los carbohidratos del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de carbohidratos de la base es para 100g, haciendose una regla de 3 para el ajuste.
     carbohidrato_totales_oa3<- n_carbohidratos_totales_oa3.1 + n_carbohidratos_totales_oa3.2 + n_carbohidratos_totales_oa3.3
     #Saca las grasas
-    grasas_alimento_dieta_oa3.1<- alimento_origen_animal[alimento_dieta_oa3.1, "Grasas"]
-    n_grasas_alimento_dieta_oa3.1<- as.numeric(grasas_alimento_dieta_oa3.1)
-    n_grasas_totales_oa3.1<- (n_grasas_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100
-    grasas_alimento_dieta_oa3.2<- alimento_origen_animal[alimento_dieta_oa3.2, "Grasas"]
-    n_grasas_alimento_dieta_oa3.2<- as.numeric(grasas_alimento_dieta_oa3.2)
-    n_grasas_totales_oa3.2<- (n_grasas_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100
-    grasas_alimento_dieta_oa3.3<- alimento_origen_animal[alimento_dieta_oa3.3, "Grasas"]
-    n_grasas_alimento_dieta_oa3.3<- as.numeric(grasas_alimento_dieta_oa3.3)
-    n_grasas_totales_oa3.3<- (n_grasas_alimento_dieta_oa3.3*n_porcion_alimento3.3)/100
-    grasas_totales_oa3<- n_grasas_totales_oa3.1 + n_grasas_totales_oa3.2 + n_grasas_totales_oa3.3
+      #Del alimento 1
+    grasas_alimento_dieta_oa3.1<- alimento_origen_animal[alimento_dieta_oa3.1, "Grasas"] #pide que de la base de datos, seleccione las grasas del alimento que se introdujo y eso lo asigna a un objeto.
+    n_grasas_alimento_dieta_oa3.1<- as.numeric(grasas_alimento_dieta_oa3.1) #para que considere como variable numerica el objeto de arriba (las grasas).
+    n_grasas_totales_oa3.1<- (n_grasas_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100 #multiplica las grasas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de grasas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 2
+    grasas_alimento_dieta_oa3.2<- alimento_origen_animal[alimento_dieta_oa3.2, "Grasas"] #pide que de la base de datos, seleccione las grasas del alimento que se introdujo y eso lo asigna a un objeto.
+    n_grasas_alimento_dieta_oa3.2<- as.numeric(grasas_alimento_dieta_oa3.2) #para que considere como variable numerica el objeto de arriba (las grasas).
+    n_grasas_totales_oa3.2<- (n_grasas_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100 #multiplica las grasas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de grasas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+      #Del alimento 3
+    grasas_alimento_dieta_oa3.3<- alimento_origen_animal[alimento_dieta_oa3.3, "Grasas"] #pide que de la base de datos, seleccione las grasas del alimento que se introdujo y eso lo asigna a un objeto.
+    n_grasas_alimento_dieta_oa3.3<- as.numeric(grasas_alimento_dieta_oa3.3) #para que considere como variable numerica el objeto de arriba (las grasas).
+    n_grasas_totales_oa3.3<- (n_grasas_alimento_dieta_oa3.3*n_porcion_alimento3.3)/100 #multiplica las grasas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de grasas de la base es para 100g, haciendose una regla de 3 para el ajuste.
+    grasas_totales_oa3<- n_grasas_totales_oa3.1 + n_grasas_totales_oa3.2 + n_grasas_totales_oa3.3 #suma las grasas de los 3 alimentos
     alimento<- c(kcal_totales_oa3, proteina_totales_oa3, carbohidrato_totales_oa3, grasas_totales_oa3)
     nombres<- c("kcal","proteina","carbohidratos","grasas")
     names(alimento)<-nombres
