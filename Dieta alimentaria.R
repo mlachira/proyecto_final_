@@ -30,7 +30,7 @@ prueba_alimentos<- function(){
     kcal_totales_oa1 <- (n_kcal_alimento_dieta_oa1*n_porcion_alimento1)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
     kcal_totales_oa1 #lo imprime
     #Saca las proteinas 
-    proteina_alimento_dieta_oa1<-alimento_origen_animal[alimento_dieta_oa1, "ProteÃ­nas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto.
+    proteina_alimento_dieta_oa1<-alimento_origen_animal[alimento_dieta_oa1, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto.
     n_proteina_alimento_dieta_oa1<- as.numeric(proteina_alimento_dieta_oa1) #para que considere como variable numerica el objeto de arriba (las proteinas).
     n_proteina_totales_oa1<- (n_proteina_alimento_dieta_oa1*n_porcion_alimento1)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
     #Saca los carbohidratos
@@ -54,7 +54,7 @@ prueba_alimentos<- function(){
     porcion_alimento2.1<- readline(prompt = "Ingresa el peso en gramos del alimento de origen animal 1: ") #se arroja este texto en la consola para que el usuario conteste.
     n_porcion_alimento2.1<-as.numeric(porcion_alimento2.1) #para que considere como variable numerica el objeto de arriba (los gramos).
     kcal_oa2.1<- (n_kcal_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
-    kcal_oa2.1
+    kcal_oa2.1 #lo imprime
       #Del alimento 2
     alimento_dieta_oa2.2<-readline(prompt = "Ingresa alimento de origen animal 2: ") #se arroja este texto en la consola para que el usuario conteste.
     kcal_alimento_dieta_oa2.2<- alimento_origen_animal[alimento_dieta_oa2.2, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto para el alimento 2.
@@ -67,11 +67,11 @@ prueba_alimentos<- function(){
     kcal_totales_oa2 #lo imprime
     #Saca la proteina
       #Del alimento 1
-    proteina_alimento_dieta_oa2.1<-alimento_origen_animal[alimento_dieta_oa2.1, "ProteÃ­nas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 1.
+    proteina_alimento_dieta_oa2.1<-alimento_origen_animal[alimento_dieta_oa2.1, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 1.
     n_proteina_alimento_dieta_oa2.1<- as.numeric(proteina_alimento_dieta_oa2.1) #para que considere como variable numerica el objeto de arriba (las proteinas).
     n_proteina_totales_oa2.1<- (n_proteina_alimento_dieta_oa2.1*n_porcion_alimento2.1)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
       #Del alimento 2
-    proteina_alimento_dieta_oa2.2<-alimento_origen_animal[alimento_dieta_oa2.2, "ProteÃ­nas"]#pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 2.
+    proteina_alimento_dieta_oa2.2<-alimento_origen_animal[alimento_dieta_oa2.2, "Proteínas"]#pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 2.
     n_proteina_alimento_dieta_oa2.2<- as.numeric(proteina_alimento_dieta_oa2.2)#para que considere como variable numerica el objeto de arriba (las proteinas).
     n_proteina_totales_oa2.2<- (n_proteina_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
     proteina_totales_oa2<- n_proteina_totales_oa2.1 + n_proteina_totales_oa2.2 #suma las proteinas de ambos alimentos.
@@ -95,10 +95,10 @@ prueba_alimentos<- function(){
     n_grasas_alimento_dieta_oa2.2<- as.numeric(grasas_alimento_dieta_oa2.2) #para que considere como variable numerica el objeto de arriba (las grasas).
     n_grasas_totales_oa2.2<- (n_grasas_alimento_dieta_oa2.2*n_porcion_alimento2.2)/100 #multiplica las grasas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de grasas de la base es para 100g, haciendose una regla de 3 para el ajuste.
     grasas_totales_oa2<- n_grasas_totales_oa2.1 + n_grasas_totales_oa2.2 #suma las grasas de ambos alimentos
-    alimento<- c(kcal_totales_oa2, proteina_totales_oa2, carbohidrato_totales_oa2, grasas_totales_oa2)
-    nombres<- c("kcal","proteina","carbohidratos","grasas")
-    names(alimento)<-nombres
-    return(print(alimento))
+    alimento<- c(kcal_totales_oa2, proteina_totales_oa2, carbohidrato_totales_oa2, grasas_totales_oa2) #concatena las kcal, proteinas, carbohidratos y grasas obtenidas
+    nombres<- c("kcal","proteina","carbohidratos","grasas") #se crea un objeto con los nombres de kcal, proteina, carbohidratos y grasas.
+    names(alimento)<-nombres #el objeto "nombres" es asignado al de "alimento"
+    return(print(alimento)) #que imprima "alimento", lo cual arroja los numeros obtenidos y sus respectivos nombres (kcal, proteinas, carbohidratos y grasas).
   } else if (cantidad_oa==3){ #esto se ejecuta si se ingresan 3 alimentos
     #Saca las kcal
       #Del alimento 1
@@ -110,7 +110,7 @@ prueba_alimentos<- function(){
     n_porcion_alimento3.1<-as.numeric(porcion_alimento3.1) #para que considere como variable numerica el objeto de arriba (los gramos).
     class(n_porcion_alimento3.1)
     kcal_oa3.1<- (n_kcal_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
-    kcal_oa3.1
+    kcal_oa3.1 #lo imprime
       #Del alimento 2
     alimento_dieta_oa3.2<-readline(prompt = "Ingresa alimento de origen animal 2: ") #se arroja este texto en la consola para que el usuario conteste.
     kcal_alimento_dieta_oa3.2<- alimento_origen_animal[alimento_dieta_oa3.2, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto.
@@ -120,7 +120,7 @@ prueba_alimentos<- function(){
     n_porcion_alimento3.2<-as.numeric(porcion_alimento3.2) #para que considere como variable numerica el objeto de arriba (los gramos).
     class(n_porcion_alimento3.2)
     kcal_oa3.2<- (n_kcal_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
-    kcal_oa3.2
+    kcal_oa3.2 #lo imprime
       #Del alimento 3
     alimento_dieta_oa3.3<-readline(prompt = "Ingresa alimento de origen animal 3: ") #se arroja este texto en la consola para que el usuario conteste.
     kcal_alimento_dieta_oa3.3<- alimento_origen_animal[alimento_dieta_oa3.3, "kcal"] #pide que de la base de datos, seleccione las kcal del alimento que se introdujo arriba y eso lo asigna a un objeto.
@@ -130,20 +130,20 @@ prueba_alimentos<- function(){
     n_porcion_alimento3.3<-as.numeric(porcion_alimento3.3) #para que considere como variable numerica el objeto de arriba (los gramos).
     class(n_porcion_alimento3.3)
     kcal_oa3.3<- (n_kcal_alimento_dieta_oa3.2*n_porcion_alimento3.3)/100 #multiplica las kcal del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de kcal de la base es para 100g, haciendose una regla de 3 para el ajuste.
-    kcal_oa3.3
+    kcal_oa3.3 #lo imprime
     kcal_totales_oa3<- kcal_oa3.1+kcal_oa3.2+kcal_oa3.3 #Suma todas las kcal de los 3 alimentos
-    kcal_totales_oa3
+    kcal_totales_oa3 #lo imprime
     #Saca las proteinas
       #Del alimento 1
-    proteina_alimento_dieta_oa3.1<-alimento_origen_animal[alimento_dieta_oa3.1, "ProteÃ­nas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 1
+    proteina_alimento_dieta_oa3.1<-alimento_origen_animal[alimento_dieta_oa3.1, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 1
     n_proteina_alimento_dieta_oa3.1<- as.numeric(proteina_alimento_dieta_oa3.1) #para que considere como variable numerica el objeto de arriba (las proteinas).
     n_proteina_totales_oa3.1<- (n_proteina_alimento_dieta_oa3.1*n_porcion_alimento3.1)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
       #Del alimento 2
-    proteina_alimento_dieta_oa3.2<-alimento_origen_animal[alimento_dieta_oa3.2, "ProteÃ­nas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 2
+    proteina_alimento_dieta_oa3.2<-alimento_origen_animal[alimento_dieta_oa3.2, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 2
     n_proteina_alimento_dieta_oa3.2<- as.numeric(proteina_alimento_dieta_oa3.2) #para que considere como variable numerica el objeto de arriba (las proteinas).
     n_proteina_totales_oa3.2<- (n_proteina_alimento_dieta_oa3.2*n_porcion_alimento3.2)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
       #Del alimento 3
-    proteina_alimento_dieta_oa3.3<-alimento_origen_animal[alimento_dieta_oa3.3, "ProteÃ­nas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 3.
+    proteina_alimento_dieta_oa3.3<-alimento_origen_animal[alimento_dieta_oa3.3, "Proteínas"] #pide que de la base de datos, seleccione las proteinas del alimento que se introdujo y eso lo asigna a un objeto para el alimento 3.
     n_proteina_alimento_dieta_oa3.3<- as.numeric(proteina_alimento_dieta_oa3.3) #para que considere como variable numerica el objeto de arriba (las proteinas).
     n_proteina_totales_oa3.3<- (n_proteina_alimento_dieta_oa3.3*n_porcion_alimento3.3)/100 #multiplica las proteinas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de proteinas de la base es para 100g, haciendose una regla de 3 para el ajuste.
     proteina_totales_oa3<- n_proteina_totales_oa3.1 + n_proteina_totales_oa3.2 + n_proteina_totales_oa3.3 #suma todas las proteinas de los 3 alimentos
@@ -175,10 +175,10 @@ prueba_alimentos<- function(){
     n_grasas_alimento_dieta_oa3.3<- as.numeric(grasas_alimento_dieta_oa3.3) #para que considere como variable numerica el objeto de arriba (las grasas).
     n_grasas_totales_oa3.3<- (n_grasas_alimento_dieta_oa3.3*n_porcion_alimento3.3)/100 #multiplica las grasas del alimento por su peso y lo divide entre 100, puesto que se considera que el numero de grasas de la base es para 100g, haciendose una regla de 3 para el ajuste.
     grasas_totales_oa3<- n_grasas_totales_oa3.1 + n_grasas_totales_oa3.2 + n_grasas_totales_oa3.3 #suma las grasas de los 3 alimentos
-    alimento<- c(kcal_totales_oa3, proteina_totales_oa3, carbohidrato_totales_oa3, grasas_totales_oa3)
-    nombres<- c("kcal","proteina","carbohidratos","grasas")
-    names(alimento)<-nombres
-    return(print(alimento))
+    alimento<- c(kcal_totales_oa3, proteina_totales_oa3, carbohidrato_totales_oa3, grasas_totales_oa3) #concatena las kcal, proteinas, carbohidratos y grasas obtenidas
+    nombres<- c("kcal","proteina","carbohidratos","grasas") #se crea un objeto con los nombres de kcal, proteina, carbohidratos y grasas.
+    names(alimento)<-nombres #el objeto "nombres" es asignado al de "alimento"
+    return(print(alimento)) #que imprima "alimento", lo cual arroja los numeros obtenidos y sus respectivos nombres (kcal, proteinas, carbohidratos y grasas).
   }
 }
 
@@ -197,7 +197,7 @@ prueba_fruta<-function(){
     kcal_totales_fruta1<- (n_kcal_alimento_dieta_fruta1*n_porcion_fruta1)/100
     kcal_totales_fruta1
     #Saca las proteinas 
-    proteina_alimento_dieta_fruta1<-frutas[alimento_dieta_fruta1, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta1<-frutas[alimento_dieta_fruta1, "Proteínas"]
     n_proteina_alimento_dieta_fruta1<- as.numeric(proteina_alimento_dieta_fruta1)
     n_proteina_totales_fruta1<- (n_proteina_alimento_dieta_fruta1*n_porcion_fruta1)/100
     #Saca los carbohidratos
@@ -231,10 +231,10 @@ prueba_fruta<-function(){
     kcal_totales_fruta2<- kcal_fruta2.1+kcal_fruta2.2
     kcal_totales_fruta2
     #Saca la proteina
-    proteina_alimento_dieta_fruta2.1<-frutas[alimento_dieta_fruta2.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta2.1<-frutas[alimento_dieta_fruta2.1, "Proteínas"]
     n_proteina_alimento_dieta_fruta2.1<- as.numeric(proteina_alimento_dieta_fruta2.1)
     n_proteina_totales_fruta2.1<- (n_proteina_alimento_dieta_fruta2.1*n_porcion_fruta2.1)/100
-    proteina_alimento_dieta_fruta2.2<-frutas[alimento_dieta_fruta2.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta2.2<-frutas[alimento_dieta_fruta2.2, "Proteínas"]
     n_proteina_alimento_dieta_fruta2.2<- as.numeric(proteina_alimento_dieta_fruta2.2)
     n_proteina_totales_fruta2.2<- (n_proteina_alimento_dieta_fruta2.2*n_porcion_fruta2.2)/100
     proteina_totales_fruta2<- n_proteina_totales_fruta2.1 + n_proteina_totales_fruta2.2
@@ -284,13 +284,13 @@ prueba_fruta<-function(){
     kcal_totales_fruta3<- kcal_fruta3.1+kcal_fruta3.2+kcal_fruta3.3
     kcal_totales_fruta3
     #Saca las proteinas
-    proteina_alimento_dieta_fruta3.1<-frutas[alimento_dieta_fruta3.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta3.1<-frutas[alimento_dieta_fruta3.1, "Proteínas"]
     n_proteina_alimento_dieta_fruta3.1<- as.numeric(proteina_alimento_dieta_fruta3.1)
     n_proteina_totales_fruta3.1<- (n_proteina_alimento_dieta_fruta3.1*n_porcion_fruta3.1)/100
-    proteina_alimento_dieta_fruta3.2<-frutas[alimento_dieta_fruta3.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta3.2<-frutas[alimento_dieta_fruta3.2, "Proteínas"]
     n_proteina_alimento_dieta_fruta3.2<- as.numeric(proteina_alimento_dieta_fruta3.2)
     n_proteina_totales_fruta3.2<- (n_proteina_alimento_dieta_fruta3.2*n_porcion_fruta3.2)/100
-    proteina_alimento_dieta_fruta3.3<-frutas[alimento_dieta_fruta3.3, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta3.3<-frutas[alimento_dieta_fruta3.3, "Proteínas"]
     n_proteina_alimento_dieta_fruta3.3<- as.numeric(proteina_alimento_dieta_fruta3.3)
     n_proteina_totales_fruta3.3<- (n_proteina_alimento_dieta_fruta3.3*n_porcion_fruta3.3)/100
     proteina_totales_fruta3<- n_proteina_totales_fruta3.1 + n_proteina_totales_fruta3.2 + n_proteina_totales_fruta3.3
@@ -352,16 +352,16 @@ prueba_fruta<-function(){
     kcal_totales_fruta4<- kcal_fruta4.1+kcal_fruta4.2+kcal_fruta4.3+ kcal_fruta4.4
     kcal_totales_fruta4
     #Saca las proteinas
-    proteina_alimento_dieta_fruta4.1<-frutas[alimento_dieta_fruta4.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta4.1<-frutas[alimento_dieta_fruta4.1, "Proteínas"]
     n_proteina_alimento_dieta_fruta4.1<- as.numeric(proteina_alimento_dieta_fruta4.1)
     n_proteina_totales_fruta4.1<- (n_proteina_alimento_dieta_fruta4.1*n_porcion_fruta4.1)/100
-    proteina_alimento_dieta_fruta4.2<-frutas[alimento_dieta_fruta4.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta4.2<-frutas[alimento_dieta_fruta4.2, "Proteínas"]
     n_proteina_alimento_dieta_fruta4.2<- as.numeric(proteina_alimento_dieta_fruta4.2)
     n_proteina_totales_fruta4.2<- (n_proteina_alimento_dieta_fruta4.2*n_porcion_fruta4.2)/100
-    proteina_alimento_dieta_fruta4.3<-frutas[alimento_dieta_fruta4.3, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta4.3<-frutas[alimento_dieta_fruta4.3, "Proteínas"]
     n_proteina_alimento_dieta_fruta4.3<- as.numeric(proteina_alimento_dieta_fruta4.3)
     n_proteina_totales_fruta4.3<- (n_proteina_alimento_dieta_fruta4.3*n_porcion_fruta4.3)/100
-    proteina_alimento_dieta_fruta4.4<-frutas[alimento_dieta_fruta4.4, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta4.4<-frutas[alimento_dieta_fruta4.4, "Proteínas"]
     n_proteina_alimento_dieta_fruta4.4<- as.numeric(proteina_alimento_dieta_fruta4.4)
     n_proteina_totales_fruta4.4<- (n_proteina_alimento_dieta_fruta4.4*n_porcion_fruta4.4)/100
     proteina_totales_fruta4<- n_proteina_totales_fruta4.1 + n_proteina_totales_fruta4.2 + n_proteina_totales_fruta4.3 + n_proteina_totales_fruta4.4
@@ -436,19 +436,19 @@ prueba_fruta<-function(){
     kcal_totales_fruta5<- kcal_fruta5.1+kcal_fruta5.2+kcal_fruta5.3+ kcal_fruta5.4 + kcal_fruta5.5
     kcal_totales_fruta5
     #Saca las proteinas
-    proteina_alimento_dieta_fruta5.1<-frutas[alimento_dieta_fruta5.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta5.1<-frutas[alimento_dieta_fruta5.1, "Proteínas"]
     n_proteina_alimento_dieta_fruta5.1<- as.numeric(proteina_alimento_dieta_fruta5.1)
     n_proteina_totales_fruta5.1<- (n_proteina_alimento_dieta_fruta5.1*n_porcion_fruta5.1)/100
-    proteina_alimento_dieta_fruta5.2<-frutas[alimento_dieta_fruta5.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta5.2<-frutas[alimento_dieta_fruta5.2, "Proteínas"]
     n_proteina_alimento_dieta_fruta5.2<- as.numeric(proteina_alimento_dieta_fruta5.2)
     n_proteina_totales_fruta5.2<- (n_proteina_alimento_dieta_fruta5.2*n_porcion_fruta5.2)/100
-    proteina_alimento_dieta_fruta5.3<-frutas[alimento_dieta_fruta5.3, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta5.3<-frutas[alimento_dieta_fruta5.3, "Proteínas"]
     n_proteina_alimento_dieta_fruta5.3<- as.numeric(proteina_alimento_dieta_fruta5.3)
     n_proteina_totales_fruta5.3<- (n_proteina_alimento_dieta_fruta5.3*n_porcion_fruta5.3)/100
-    proteina_alimento_dieta_fruta5.4<-frutas[alimento_dieta_fruta5.4, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta5.4<-frutas[alimento_dieta_fruta5.4, "Proteínas"]
     n_proteina_alimento_dieta_fruta5.4<- as.numeric(proteina_alimento_dieta_fruta5.4)
     n_proteina_totales_fruta5.4<- (n_proteina_alimento_dieta_fruta5.4*n_porcion_fruta5.4)/100
-    proteina_alimento_dieta_fruta5.5<-frutas[alimento_dieta_fruta5.5, "ProteÃ­nas"]
+    proteina_alimento_dieta_fruta5.5<-frutas[alimento_dieta_fruta5.5, "Proteínas"]
     n_proteina_alimento_dieta_fruta5.5<- as.numeric(proteina_alimento_dieta_fruta5.5)
     n_proteina_totales_fruta5.5<- (n_proteina_alimento_dieta_fruta5.5*n_porcion_fruta5.5)/100
     proteina_totales_fruta5<- n_proteina_totales_fruta5.1 + n_proteina_totales_fruta5.2 + n_proteina_totales_fruta5.3 + n_proteina_totales_fruta5.4 + n_proteina_totales_fruta5.5
@@ -509,7 +509,7 @@ prueba_verdura<-function(){
     kcal_totales_verd1 <- (n_kcal_alimento_dieta_verd1*n_porcion_verd1)/100
     kcal_totales_verd1
     #Saca las proteinas 
-    proteina_alimento_dieta_verd1 <- verduras[alimento_dieta_verd1, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd1 <- verduras[alimento_dieta_verd1, "Proteínas"]
     n_proteina_alimento_dieta_verd1 <- as.numeric(proteina_alimento_dieta_verd1)
     n_proteina_totales_verd1 <- (n_proteina_alimento_dieta_verd1*n_porcion_verd1)/100
     #Saca los carbohidratos
@@ -543,10 +543,10 @@ prueba_verdura<-function(){
     kcal_totales_verd2<- kcal_verd2.1+kcal_verd2.2
     kcal_totales_verd2
     #Saca la proteina
-    proteina_alimento_dieta_verd2.1 <- verduras[alimento_dieta_verd2.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd2.1 <- verduras[alimento_dieta_verd2.1, "Proteínas"]
     n_proteina_alimento_dieta_verd2.1<- as.numeric(proteina_alimento_dieta_verd2.1)
     n_proteina_totales_verd2.1<- (n_proteina_alimento_dieta_verd2.1*n_porcion_verd2.1)/100
-    proteina_alimento_dieta_verd2.2<-verduras[alimento_dieta_verd2.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd2.2<-verduras[alimento_dieta_verd2.2, "Proteínas"]
     n_proteina_alimento_dieta_verd2.2<- as.numeric(proteina_alimento_dieta_verd2.2)
     n_proteina_totales_verd2.2<- (n_proteina_alimento_dieta_verd2.2*n_porcion_verd2.2)/100
     proteina_totales_verd2<- n_proteina_totales_verd2.1 + n_proteina_totales_verd2.2
@@ -596,13 +596,13 @@ prueba_verdura<-function(){
     kcal_totales_verd3<- kcal_verd3.1+kcal_verd3.2+kcal_verd3.3
     kcal_totales_verd3
     #Saca las proteinas
-    proteina_alimento_dieta_verd3.1<-verduras[alimento_dieta_verd3.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd3.1<-verduras[alimento_dieta_verd3.1, "Proteínas"]
     n_proteina_alimento_dieta_verd3.1<- as.numeric(proteina_alimento_dieta_verd3.1)
     n_proteina_totales_verd3.1<- (n_proteina_alimento_dieta_verd3.1*n_porcion_verd3.1)/100
-    proteina_alimento_dieta_verd3.2<-verduras[alimento_dieta_verd3.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd3.2<-verduras[alimento_dieta_verd3.2, "Proteínas"]
     n_proteina_alimento_dieta_verd3.2<- as.numeric(proteina_alimento_dieta_verd3.2)
     n_proteina_totales_verd3.2<- (n_proteina_alimento_dieta_verd3.2*n_porcion_verd3.2)/100
-    proteina_alimento_dieta_verd3.3<-verduras[alimento_dieta_verd3.3, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd3.3<-verduras[alimento_dieta_verd3.3, "Proteínas"]
     n_proteina_alimento_dieta_verd3.3<- as.numeric(proteina_alimento_dieta_verd3.3)
     n_proteina_totales_verd3.3<- (n_proteina_alimento_dieta_verd3.3*n_porcion_verd3.3)/100
     proteina_totales_verd3<- n_proteina_totales_verd3.1 + n_proteina_totales_verd3.2 + n_proteina_totales_verd3.3
@@ -664,13 +664,13 @@ prueba_verdura<-function(){
     kcal_totales_verd4<- kcal_verd4.1+kcal_verd4.2+kcal_verd4.3+ kcal_verd4.4
     kcal_totales_verd4
     #Saca las proteinas
-    proteina_alimento_dieta_verd4.1<-verduras[alimento_dieta_verd4.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd4.1<-verduras[alimento_dieta_verd4.1, "Proteínas"]
     n_proteina_alimento_dieta_verd4.1<- as.numeric(proteina_alimento_dieta_verd4.1)
     n_proteina_totales_verd4.1<- (n_proteina_alimento_dieta_verd4.1*n_porcion_verd4.1)/100
-    proteina_alimento_dieta_verd4.2<-verduras[alimento_dieta_verd4.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd4.2<-verduras[alimento_dieta_verd4.2, "Proteínas"]
     n_proteina_alimento_dieta_verd4.2<- as.numeric(proteina_alimento_dieta_verd4.2)
     n_proteina_totales_verd4.2<- (n_proteina_alimento_dieta_verd4.2*n_porcion_verd4.2)/100
-    proteina_alimento_dieta_verd4.3<-verduras[alimento_dieta_verd4.3, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd4.3<-verduras[alimento_dieta_verd4.3, "Proteínas"]
     n_proteina_alimento_dieta_verd4.3<- as.numeric(proteina_alimento_dieta_verd4.3)
     n_proteina_totales_verd4.3<- (n_proteina_alimento_dieta_verd4.3*n_porcion_verd4.3)/100
     proteina_alimento_dieta_verd4.4<-verduras[alimento_dieta_verd4.4, "ProteÃnas"]
@@ -748,19 +748,19 @@ prueba_verdura<-function(){
     kcal_totales_verd5<- kcal_verd5.1+kcal_verd5.2+kcal_verd5.3+ kcal_verd5.4 + kcal_verd5.5
     kcal_totales_verd5
     #Saca las proteinas
-    proteina_alimento_dieta_verd5.1<-verduras[alimento_dieta_verd5.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd5.1<-verduras[alimento_dieta_verd5.1, "Proteínas"]
     n_proteina_alimento_dieta_verd5.1<- as.numeric(proteina_alimento_dieta_verd5.1)
     n_proteina_totales_verd5.1<- (n_proteina_alimento_dieta_verd5.1*n_porcion_verd5.1)/100
-    proteina_alimento_dieta_verd5.2<-verduras[alimento_dieta_verd5.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd5.2<-verduras[alimento_dieta_verd5.2, "Proteínas"]
     n_proteina_alimento_dieta_verd5.2<- as.numeric(proteina_alimento_dieta_verd5.2)
     n_proteina_totales_verd5.2<- (n_proteina_alimento_dieta_verd5.2*n_porcion_verd5.2)/100
-    proteina_alimento_dieta_verd5.3<-verduras[alimento_dieta_verd5.3, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd5.3<-verduras[alimento_dieta_verd5.3, "Proteínas"]
     n_proteina_alimento_dieta_verd5.3<- as.numeric(proteina_alimento_dieta_verd5.3)
     n_proteina_totales_verd5.3<- (n_proteina_alimento_dieta_verd5.3*n_porcion_verd5.3)/100
-    proteina_alimento_dieta_verd5.4<-verduras[alimento_dieta_verd5.4, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd5.4<-verduras[alimento_dieta_verd5.4, "Proteínas"]
     n_proteina_alimento_dieta_verd5.4<- as.numeric(proteina_alimento_dieta_verd5.4)
     n_proteina_totales_verd5.4<- (n_proteina_alimento_dieta_verd5.4*n_porcion_verd5.4)/100
-    proteina_alimento_dieta_verd5.5<-verduras[alimento_dieta_verd5.5, "ProteÃ­nas"]
+    proteina_alimento_dieta_verd5.5<-verduras[alimento_dieta_verd5.5, "Proteínas"]
     n_proteina_alimento_dieta_verd5.5<- as.numeric(proteina_alimento_dieta_verd5.5)
     n_proteina_totales_verd5.5<- (n_proteina_alimento_dieta_verd5.5*n_porcion_verd5.5)/100
     proteina_totales_verd5<- n_proteina_totales_verd5.1 + n_proteina_totales_verd5.2 + n_proteina_totales_verd5.3 + n_proteina_totales_verd5.4 + n_proteina_totales_verd5.5
@@ -804,8 +804,6 @@ prueba_verdura<-function(){
     return(print(verdura))
     }
 }
-alimento_verdura<-prueba_verdura()
-alimento_verdura
 
 
 
@@ -824,7 +822,7 @@ prueba_leguminosa<- function(){
     kcal_totales_leguminosas1<- (n_kcal_alimento_dieta_leguminosas1*n_porcion_leguminosas1)/100
     kcal_totales_leguminosas1
     #Saca las proteinas 
-    proteina_alimento_dieta_leguminosas1<-leguminosas[alimento_dieta_leguminosas1, "ProteÃ­nas"]
+    proteina_alimento_dieta_leguminosas1<-leguminosas[alimento_dieta_leguminosas1, "Proteínas"]
     n_proteina_alimento_dieta_leguminosas1<- as.numeric(proteina_alimento_dieta_leguminosas1)
     proteina_totales_leguminosas1<- (n_proteina_alimento_dieta_leguminosas1*n_porcion_leguminosas1)/100
     #Saca los carbohidratos
@@ -857,10 +855,10 @@ prueba_leguminosa<- function(){
     kcal_leguminosas2.2
     kcal_totales_leguminosas2<- kcal_leguminosas2.1 + kcal_leguminosas2.2
     #Saca las proteinas 
-    proteina_alimento_dieta_leguminosas2.1<-leguminosas[alimento_dieta_leguminosas2.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_leguminosas2.1<-leguminosas[alimento_dieta_leguminosas2.1, "Proteínas"]
     n_proteina_alimento_dieta_leguminosas2.1<- as.numeric(proteina_alimento_dieta_leguminosas2.1)
     n_proteina_leguminosas2.1<- (n_proteina_alimento_dieta_leguminosas2.1*n_porcion_leguminosas2.1)/100
-    proteina_alimento_dieta_leguminosas2.2<-leguminosas[alimento_dieta_leguminosas2.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_leguminosas2.2<-leguminosas[alimento_dieta_leguminosas2.2, "Proteínas"]
     n_proteina_alimento_dieta_leguminosas2.2<- as.numeric(proteina_alimento_dieta_leguminosas2.2)
     n_proteina_leguminosas2.2<- (n_proteina_alimento_dieta_leguminosas2.2*n_porcion_leguminosas2.2)/100
     proteina_totales_leguminosas2<- n_proteina_leguminosas2.1 + n_proteina_leguminosas2.2
@@ -909,13 +907,13 @@ prueba_leguminosa<- function(){
     kcal_leguminosas3.3
     kcal_totales_leguminosas3<- kcal_leguminosas3.1 + kcal_leguminosas3.2 + kcal_leguminosas3.3
     #Saca las proteinas 
-    proteina_alimento_dieta_leguminosas3.1<-leguminosas[alimento_dieta_leguminosas3.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_leguminosas3.1<-leguminosas[alimento_dieta_leguminosas3.1, "Proteínas"]
     n_proteina_alimento_dieta_leguminosas3.1<- as.numeric(proteina_alimento_dieta_leguminosas3.1)
     n_proteina_leguminosas3.1<- (n_proteina_alimento_dieta_leguminosas3.1*n_porcion_leguminosas3.1)/100
-    proteina_alimento_dieta_leguminosas3.2<-leguminosas[alimento_dieta_leguminosas3.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_leguminosas3.2<-leguminosas[alimento_dieta_leguminosas3.2, "Proteínas"]
     n_proteina_alimento_dieta_leguminosas3.2<- as.numeric(proteina_alimento_dieta_leguminosas3.2)
     n_proteina_leguminosas3.2<- (n_proteina_alimento_dieta_leguminosas3.2*n_porcion_leguminosas3.2)/100
-    proteina_alimento_dieta_leguminosas3.3<-leguminosas[alimento_dieta_leguminosas3.3, "ProteÃ­nas"]
+    proteina_alimento_dieta_leguminosas3.3<-leguminosas[alimento_dieta_leguminosas3.3, "Proteínas"]
     n_proteina_alimento_dieta_leguminosas3.3<- as.numeric(proteina_alimento_dieta_leguminosas3.3)
     n_proteina_leguminosas3.3<- (n_proteina_alimento_dieta_leguminosas3.3*n_porcion_leguminosas3.3)/100
     proteina_totales_leguminosas3<- n_proteina_leguminosas3.1 + n_proteina_leguminosas3.2 + n_proteina_leguminosas3.3
@@ -964,7 +962,7 @@ pruebas_grasas_proteina<- function(){
     kcal_totales_grasas_proteina1<- (n_kcal_alimento_dieta_grasas_proteina1*n_porcion_grasas_proteina1)/100
     kcal_totales_grasas_proteina1
     #Saca las proteinas 
-    proteina_alimento_dieta_grasas_proteina1<-grasas_con_proteinas[alimento_dieta_grasas_proteina1, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas_proteina1<-grasas_con_proteinas[alimento_dieta_grasas_proteina1, "Proteínas"]
     n_proteina_alimento_dieta_grasas_proteina1<- as.numeric(proteina_alimento_dieta_grasas_proteina1)
     proteina_totales_grasas_proteina1<- (n_proteina_alimento_dieta_grasas_proteina1*n_porcion_grasas_proteina1)/100
     #Saca los carbohidratos
@@ -997,10 +995,10 @@ pruebas_grasas_proteina<- function(){
     kcal_grasas_proteina2.2
     kcal_totales_grasas_proteina2<- kcal_grasas_proteina2.1 + kcal_grasas_proteina2.2
     #Saca las proteinas 
-    proteina_alimento_dieta_grasas_proteina2.1<-grasas_con_proteinas[alimento_dieta_grasas_proteina2.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas_proteina2.1<-grasas_con_proteinas[alimento_dieta_grasas_proteina2.1, "Proteínas"]
     n_proteina_alimento_dieta_grasas_proteina2.1<- as.numeric(proteina_alimento_dieta_grasas_proteina2.1)
     n_proteina_grasas_proteina2.1<- (n_proteina_alimento_dieta_grasas_proteina2.1*n_porcion_grasas_proteina2.1)/100
-    proteina_alimento_dieta_grasas_proteina2.2<-grasas_con_proteinas[alimento_dieta_grasas_proteina2.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas_proteina2.2<-grasas_con_proteinas[alimento_dieta_grasas_proteina2.2, "Proteínas"]
     n_proteina_alimento_dieta_grasas_proteina2.2<- as.numeric(proteina_alimento_dieta_grasas_proteina2.2)
     n_proteina_grasas_proteina2.2<- (n_proteina_alimento_dieta_grasas_proteina2.2*n_porcion_grasas_proteina2.2)/100
     proteina_totales_grasas_proteina2<- n_proteina_grasas_proteina2.1 + n_proteina_grasas_proteina2.2
@@ -1049,13 +1047,13 @@ pruebas_grasas_proteina<- function(){
       kcal_grasas_proteina3.3
       kcal_totales_grasas_proteina3<- kcal_grasas_proteina3.1 + kcal_grasas_proteina3.2 + kcal_grasas_proteina3.3
       #Saca las proteinas 
-      proteina_alimento_dieta_grasas_proteina3.1<-grasas_con_proteinas[alimento_dieta_grasas_proteina3.1, "ProteÃ­nas"]
+      proteina_alimento_dieta_grasas_proteina3.1<-grasas_con_proteinas[alimento_dieta_grasas_proteina3.1, "Proteínas"]
       n_proteina_alimento_dieta_grasas_proteina3.1<- as.numeric(proteina_alimento_dieta_grasas_proteina3.1)
       n_proteina_grasas_proteina3.1<- (n_proteina_alimento_dieta_grasas_proteina3.1*n_porcion_grasas_proteina3.1)/100
-      proteina_alimento_dieta_grasas_proteina3.2<-grasas_con_proteinas[alimento_dieta_grasas_proteina3.2, "ProteÃ­nas"]
+      proteina_alimento_dieta_grasas_proteina3.2<-grasas_con_proteinas[alimento_dieta_grasas_proteina3.2, "Proteínas"]
       n_proteina_alimento_dieta_grasas_proteina3.2<- as.numeric(proteina_alimento_dieta_grasas_proteina3.2)
       n_proteina_grasas_proteina3.2<- (n_proteina_alimento_dieta_grasas_proteina3.2*n_porcion_grasas_proteina3.2)/100
-      proteina_alimento_dieta_grasas_proteina3.3<-grasas_con_proteinas[alimento_dieta_grasas_proteina3.3, "ProteÃ­nas"]
+      proteina_alimento_dieta_grasas_proteina3.3<-grasas_con_proteinas[alimento_dieta_grasas_proteina3.3, "Proteínas"]
       n_proteina_alimento_dieta_grasas_proteina3.3<- as.numeric(proteina_alimento_dieta_grasas_proteina3.3)
       n_proteina_grasas_proteina3.3<- (n_proteina_alimento_dieta_grasas_proteina3.3*n_porcion_grasas_proteina3.3)/100
       proteina_totales_grasas_proteina3<- n_proteina_grasas_proteina3.1 + n_proteina_grasas_proteina3.2 + n_proteina_grasas_proteina3.3
@@ -1105,7 +1103,7 @@ prueba_grasas<- function (){
     kcal_totales_grasas1<- (n_kcal_alimento_dieta_grasas1*n_porcion_grasas1)/100
     kcal_totales_grasas1
     #Saca las proteinas 
-    proteina_alimento_dieta_grasas1<-grasas[alimento_dieta_grasas1, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas1<-grasas[alimento_dieta_grasas1, "Proteínas"]
     n_proteina_alimento_dieta_grasas1<- as.numeric(proteina_alimento_dieta_grasas1)
     proteina_totales_grasas1<- (n_proteina_alimento_dieta_grasas1*n_porcion_grasas1)/100
     #Saca los carbohidratos
@@ -1138,10 +1136,10 @@ prueba_grasas<- function (){
     kcal_grasas2.2
     kcal_totales_grasas2<- kcal_grasas2.1 + kcal_grasas2.2
     #Saca las proteinas 
-    proteina_alimento_dieta_grasas2.1<-grasas[alimento_dieta_grasas2.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas2.1<-grasas[alimento_dieta_grasas2.1, "Proteínas"]
     n_proteina_alimento_dieta_grasas2.1<- as.numeric(proteina_alimento_dieta_grasas2.1)
     n_proteina_grasas2.1<- (n_proteina_alimento_dieta_grasas2.1*n_porcion_grasas2.1)/100
-    proteina_alimento_dieta_grasas2.2<-grasas[alimento_dieta_grasas2.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas2.2<-grasas[alimento_dieta_grasas2.2, "Proteínas"]
     n_proteina_alimento_dieta_grasas2.2<- as.numeric(proteina_alimento_dieta_grasas2.2)
     n_proteina_grasas2.2<- (n_proteina_alimento_dieta_grasas2.2*n_porcion_grasas2.2)/100
     proteina_totales_grasas2<- n_proteina_grasas2.1 + n_proteina_grasas2.2
@@ -1190,13 +1188,13 @@ prueba_grasas<- function (){
     kcal_grasas3.3
     kcal_totales_grasas3<- kcal_grasas3.1 + kcal_grasas3.2 + kcal_grasas3.3
     #Saca las proteinas 
-    proteina_alimento_dieta_grasas3.1<-grasas[alimento_dieta_grasas3.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas3.1<-grasas[alimento_dieta_grasas3.1, "Proteínas"]
     n_proteina_alimento_dieta_grasas3.1<- as.numeric(proteina_alimento_dieta_grasas3.1)
     n_proteina_grasas3.1<- (n_proteina_alimento_dieta_grasas3.1*n_porcion_grasas3.1)/100
-    proteina_alimento_dieta_grasas3.2<-grasas[alimento_dieta_grasas3.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas3.2<-grasas[alimento_dieta_grasas3.2, "Proteínas"]
     n_proteina_alimento_dieta_grasas3.2<- as.numeric(proteina_alimento_dieta_grasas3.2)
     n_proteina_grasas3.2<- (n_proteina_alimento_dieta_grasas3.2*n_porcion_grasas3.2)/100
-    proteina_alimento_dieta_grasas3.3<-grasas[alimento_dieta_grasas3.3, "ProteÃ­nas"]
+    proteina_alimento_dieta_grasas3.3<-grasas[alimento_dieta_grasas3.3, "Proteínas"]
     n_proteina_alimento_dieta_grasas3.3<- as.numeric(proteina_alimento_dieta_grasas3.3)
     n_proteina_grasas3.3<- (n_proteina_alimento_dieta_grasas3.3*n_porcion_grasas3.3)/100
     proteina_totales_grasas3<- n_proteina_grasas3.1 + n_proteina_grasas3.2 + n_proteina_grasas3.3
@@ -1245,7 +1243,7 @@ prueba_azucar<-function(){
     kcal_totales_azucar1<- (n_kcal_alimento_dieta_azucar1*n_porcion_azucar1)/100
     kcal_totales_azucar1
     #Saca las proteinas 
-    proteina_alimento_dieta_azucar1<-azucar[alimento_dieta_azucar1, "ProteÃ­nas"]
+    proteina_alimento_dieta_azucar1<-azucar[alimento_dieta_azucar1, "Proteínas"]
     n_proteina_alimento_dieta_azucar1<- as.numeric(proteina_alimento_dieta_azucar1)
     proteina_totales_azucar1<- (n_proteina_alimento_dieta_azucar1*n_porcion_azucar1)/100
     #Saca los carbohidratos
@@ -1278,10 +1276,10 @@ prueba_azucar<-function(){
     kcal_azucar2.2
     kcal_totales_azucar2<- kcal_azucar2.1 + kcal_azucar2.2
     #Saca las proteinas 
-    proteina_alimento_dieta_azucar2.1<-azucar[alimento_dieta_azucar2.1, "ProteÃ­nas"]
+    proteina_alimento_dieta_azucar2.1<-azucar[alimento_dieta_azucar2.1, "Proteínas"]
     n_proteina_alimento_dieta_azucar2.1<- as.numeric(proteina_alimento_dieta_azucar2.1)
     n_proteina_azucar2.1<- (n_proteina_alimento_dieta_azucar2.1*n_porcion_azucar2.1)/100
-    proteina_alimento_dieta_azucar2.2<-azucar[alimento_dieta_azucar2.2, "ProteÃ­nas"]
+    proteina_alimento_dieta_azucar2.2<-azucar[alimento_dieta_azucar2.2, "Proteínas"]
     n_proteina_alimento_dieta_azucar2.2<- as.numeric(proteina_alimento_dieta_azucar2.2)
     n_proteina_azucar2.2<- (n_proteina_alimento_dieta_azucar2.2*n_porcion_azucar2.2)/100
     proteina_totales_azucar2<- n_proteina_azucar2.1 + n_proteina_azucar2.2
@@ -1312,7 +1310,7 @@ prueba_azucar<-function(){
 ######Checar el 2 #######
 
 #Hago una tabla en blanco con data.frame.
-#Una tabla equivale a un dÃ­a en el que van a preguntar que comiste de los grupos alimenticios en el desayuno, colaciÃ³n 1, comida, colacion 2 y cena
+#Una tabla equivale a un dÃ­a en el que van a preguntar que comiste de los grupos alimenticios en el desayuno, Colacion 1, comida, colacion 2 y cena
 dia_prueba<-function(){
 comidas_prueba<- data.frame(comidas= character(),
                              kcal = numeric(),
@@ -1363,7 +1361,7 @@ alimento_grasas
 alimento_azucar<- prueba_azucar()
 alimento_azucar
 
-Colacion_1<-data.frame(comidas="ColaciÃ³n 1",
+Colacion_1<-data.frame(comidas="Colacion 1",
                        kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
                        proteinas=alimento_animal["proteina"] + alimento_fruta["proteina"] + alimento_verdura ["proteina"] + alimento_leguminosa ["proteina"] + alimento_grasas_proteina["proteina"] + alimento_grasas["proteina"] + alimento_azucar ["proteina"],
                        carbohidratos=alimento_animal["carbohidratos"] + alimento_fruta["carbohidratos"] + alimento_verdura ["carbohidratos"] + alimento_leguminosa ["carbohidratos"] + alimento_grasas_proteina["carbohidratos"] + alimento_grasas["carbohidratos"] + alimento_azucar ["carbohidratos"],
@@ -1415,7 +1413,7 @@ alimento_grasas
 alimento_azucar<- prueba_azucar()
 alimento_azucar
 
-Colacion_2<-data.frame(comidas="ColaciÃ³n 2",
+Colacion_2<-data.frame(comidas="Colacion 2",
                        kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
                        proteinas=alimento_animal["proteina"] + alimento_fruta["proteina"] + alimento_verdura ["proteina"] + alimento_leguminosa ["proteina"] + alimento_grasas_proteina["proteina"] + alimento_grasas["proteina"] + alimento_azucar ["proteina"],
                        carbohidratos=alimento_animal["carbohidratos"] + alimento_fruta["carbohidratos"] + alimento_verdura ["carbohidratos"] + alimento_leguminosa ["carbohidratos"] + alimento_grasas_proteina["carbohidratos"] + alimento_grasas["carbohidratos"] + alimento_azucar ["carbohidratos"],
@@ -1452,6 +1450,7 @@ comidas_prueba <- rbind(comidas_prueba, Cena)
 return(print(comidas_prueba))}
 
 dia_1 <- dia_prueba()
+
 #para generar un plot con una tabla que incluya todos los datos del dia
 
 #instale estos paquetes para la tabla:
@@ -1468,18 +1467,18 @@ library(glue)
 
 
   ### OPCION 1
-head(comidas_prueba) %>% 
+head(dia_1) %>% 
   gt() %>% 
   gt_theme_nytimes() %>%
-  tab_header(title = "Resumen d?a 1")
+  tab_header(title = "Resumen dia 1")
 
   ### OPCION 2
-head(comidas_prueba) %>%
+head(dia_1) %>%
   gt() %>% 
   gt_theme_538()
 
   ### OPCION 3
-head(comidas_prueba) %>%
+head(dia_1) %>%
   gt() %>% 
   gt_theme_espn()
 
