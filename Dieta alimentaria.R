@@ -1292,10 +1292,10 @@ prueba_azucar<-function(){
     n_carbohidratos_azucar2.2<- (n_carbohidratos_alimento_dieta_azucar2.2*n_porcion_azucar2.2)/100
     carbohidratos_totales_azucar2<- n_carbohidratos_azucar2.1 + n_carbohidratos_azucar2.2
     #Saca la grasa
-    grasa_alimento_dieta_azucar2.1<- azucar[alimento_dieta_azucar2.1, "Grasa"]
+    grasa_alimento_dieta_azucar2.1<- azucar[alimento_dieta_azucar2.1, "Grasas"]
     n_grasa_alimento_dieta_azucar2.1<- as.numeric(grasa_alimento_dieta_azucar2.1)
     n_grasa_azucar2.1<- (n_grasa_alimento_dieta_azucar2.1*n_porcion_azucar2.1)/100
-    grasa_alimento_dieta_azucar2.2<- azucar[alimento_dieta_azucar2.2, "Grasa"]
+    grasa_alimento_dieta_azucar2.2<- azucar[alimento_dieta_azucar2.2, "Grasas"]
     n_grasa_alimento_dieta_azucar2.2<- as.numeric(grasa_alimento_dieta_azucar2.2)
     n_grasa_azucar2.2<- (n_grasa_alimento_dieta_azucar2.2*n_porcion_azucar2.2)/100
     grasa_totales_azucar2<- n_grasa_azucar2.1 + n_grasa_azucar2.2
@@ -1306,8 +1306,82 @@ prueba_azucar<-function(){
   }
 }
 
-
-######Checar el 2 #######
+#### CEREALES ######
+prueba_cereales<- function(){
+  cantidad_de_cereales<- readline(prompt = "Ingresa el numero de cereales: ")
+  cantidad_cereales<- as.numeric(cantidad_de_cereales)
+  if(cantidad_cereales==1){
+    #Saca las kcal
+    alimento_dieta_cereales1<-readline(prompt = "Ingresa cereales 1: ")
+    kcal_alimento_dieta_cereales1<- cereales[alimento_dieta_cereales1, "kcal"]
+    n_kcal_alimento_dieta_cereales1<-as.numeric(kcal_alimento_dieta_cereales1)
+    porcion_cereales1<- readline(prompt = "Ingresa el peso en gr de cereales: ")
+    n_porcion_cereales1<-as.numeric(porcion_cereales1)
+    kcal_totales_cereales1<- (n_kcal_alimento_dieta_cereales1*n_porcion_cereales1)/100
+    kcal_totales_cereales1
+    #Saca las proteinas 
+    proteina_alimento_dieta_cereales1<-cereales[alimento_dieta_cereales1, "Proteinas"]
+    n_proteina_alimento_dieta_cereales1<- as.numeric(proteina_alimento_dieta_cereales1)
+    proteina_totales_cereales1<- (n_proteina_alimento_dieta_cereales1*n_porcion_cereales1)/100
+    #Saca los carbohidratos
+    carbohidratos_alimento_dieta_cereales1<- cereales[alimento_dieta_cereales1, "Carbohidratos"]
+    n_carbohidratos_alimento_dieta_cereales1<-as.numeric(carbohidratos_alimento_dieta_cereales1)
+    carbohidratos_totales_cereales1<- (n_carbohidratos_alimento_dieta_cereales1*n_porcion_cereales1)/100
+    #Saca las grasas
+    grasa_alimento_dieta_cereales1<- cereales[alimento_dieta_cereales1, "Grasas"]
+    n_grasas_alimento_dieta_cereales1<- as.numeric(grasa_alimento_dieta_cereales1)
+    grasas_totales_cereales1<- (n_grasas_alimento_dieta_cereales1*n_porcion_cereales1)/100
+    cereales_1<- c(kcal_totales_cereales1, proteina_totales_cereales1, carbohidratos_totales_cereales1, grasas_totales_cereales1)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(cereales_1)<- nombres
+    return(print(cereales_1))
+  }else if (cantidad_cereales==2){
+    #Saca las kcal
+    alimento_dieta_cereales2.1<-readline(prompt = "Ingresa cereales 1: ")
+    kcal_alimento_dieta_cereales2.1<- azucar[alimento_dieta_cereales2.1, "kcal"]
+    n_kcal_alimento_dieta_cereales2.1<-as.numeric(kcal_alimento_dieta_cereales2.1)
+    porcion_cereales2.1<- readline(prompt = "Ingresa el peso en gr de cereales 1: ")
+    n_porcion_cereales2.1<-as.numeric(porcion_cereales2.1)
+    kcal_cereales2.1<- (n_kcal_alimento_dieta_cereales2.1*n_porcion_cereales2.1)/100
+    kcal_cereales2.1
+    alimento_dieta_cereales2.2<-readline(prompt = "Ingresa cereales 2: ")
+    kcal_alimento_dieta_cereales2.2<- cereales[alimento_dieta_cereales2.2, "kcal"]
+    n_kcal_alimento_dieta_cereales2.2<-as.numeric(kcal_alimento_dieta_cereales2.2)
+    porcion_cereales2.2<- readline(prompt = "Ingresa el peso en gr de cereales 2: ")
+    n_porcion_cereales2.2<-as.numeric(porcion_cereales2.2)
+    kcal_cereales2.2<- (n_kcal_alimento_dieta_cereales2.2*n_porcion_cereales2.2)/100
+    kcal_cereales2.2
+    kcal_totales_cereales2<- kcal_cereales2.1 + kcal_cereales2.2
+    #Saca las proteinas 
+    proteina_alimento_dieta_cereales2.1<-cereales[alimento_dieta_cereales2.1, "Proteinas"]
+    n_proteina_alimento_dieta_cereales2.1<- as.numeric(proteina_alimento_dieta_cereales2.1)
+    n_proteina_cereales2.1<- (n_proteina_alimento_dieta_cereales2.1*n_porcion_cereales2.1)/100
+    proteina_alimento_dieta_cereales2.2<-cereales[alimento_dieta_cereales2.2, "Proteinas"]
+    n_proteina_alimento_dieta_cereales2.2<- as.numeric(proteina_alimento_dieta_cereales2.2)
+    n_proteina_cereales2.2<- (n_proteina_alimento_dieta_cereales2.2*n_porcion_cereales2.2)/100
+    proteina_totales_cereales2<- n_proteina_cereales2.1 + n_proteina_cereales2.2
+    #Saca los carbohidratos
+    carbohidratos_alimento_dieta_cereales2.1<- cereales[alimento_dieta_cereales2.1, "Carbohidratos"]
+    n_carbohidratos_alimento_dieta_cereales2.1<-as.numeric(carbohidratos_alimento_dieta_cereales2.1)
+    n_carbohidratos_cereales2.1<- (n_carbohidratos_alimento_dieta_cereales2.1*n_porcion_cereales2.1)/100
+    carbohidratos_alimento_dieta_cereales2.2<- cereales[alimento_dieta_cereales2.2, "Carbohidratos"]
+    n_carbohidratos_alimento_dieta_cereales2.2<-as.numeric(carbohidratos_alimento_dieta_cereales2.2)
+    n_carbohidratos_cereales2.2<- (n_carbohidratos_alimento_dieta_cereales2.2*n_porcion_cereales2.2)/100
+    carbohidratos_totales_cereales2<- n_carbohidratos_cereales2.1 + n_carbohidratos_cereales2.2
+    #Saca la grasa
+    grasa_alimento_dieta_cereales2.1<- cereales[alimento_dieta_cereales2.1, "Grasas"]
+    n_grasa_alimento_dieta_cereales2.1<- as.numeric(grasa_alimento_dieta_cereales2.1)
+    n_grasa_cereales2.1<- (n_grasa_alimento_dieta_cereales2.1*n_porcion_cereales2.1)/100
+    grasa_alimento_dieta_cereales2.2<- cereales[alimento_dieta_cereales2.2, "Grasas"]
+    n_grasa_alimento_dieta_cereales2.2<- as.numeric(grasa_alimento_dieta_cereales2.2)
+    n_grasa_cereales2.2<- (n_grasa_alimento_dieta_cereales2.2*n_porcion_cereales2.2)/100
+    grasa_totales_cereales2<- n_grasa_cereales2.1 + n_grasa_cereales2.2
+    cereales_1<- c(kcal_totales_cereales2, proteina_totales_cereales2, carbohidratos_totales_cereales2, grasa_totales_cereales2)
+    nombres<- c("kcal","proteina","carbohidratos","grasas")
+    names(cereales_1)<- nombres
+    return(print(cereales_1))
+  }
+}
 
 #Hago una tabla en blanco con data.frame.
 #Una tabla equivale a un día en el que van a preguntar que comiste de los grupos alimenticios en el desayuno, Colacion 1, comida, colacion 2 y cena
@@ -1333,6 +1407,8 @@ alimento_grasas<- prueba_grasas()
 alimento_grasas
 alimento_azucar<- prueba_azucar()
 alimento_azucar
+alimento_cereales<- prueba_cereales()
+alimento_cereales
 
 Desayuno<-data.frame(comidas="Desayuno",
               kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
@@ -1360,6 +1436,8 @@ alimento_grasas<- prueba_grasas()
 alimento_grasas
 alimento_azucar<- prueba_azucar()
 alimento_azucar
+alimento_cereales<- prueba_cereales()
+alimento_cereales
 
 Colacion_1<-data.frame(comidas="Colacion 1",
                        kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
@@ -1386,6 +1464,8 @@ alimento_grasas<- prueba_grasas()
 alimento_grasas
 alimento_azucar<- prueba_azucar()
 alimento_azucar
+alimento_cereales<- prueba_cereales()
+alimento_cereales
 
 Comida<-data.frame(comidas="Comida",
                   kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
@@ -1412,6 +1492,8 @@ alimento_grasas<- prueba_grasas()
 alimento_grasas
 alimento_azucar<- prueba_azucar()
 alimento_azucar
+alimento_cereales<- prueba_cereales()
+alimento_cereales
 
 Colacion_2<-data.frame(comidas="Colacion 2",
                        kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
@@ -1438,6 +1520,8 @@ alimento_grasas<- prueba_grasas()
 alimento_grasas
 alimento_azucar<- prueba_azucar()
 alimento_azucar
+alimento_cereales<- prueba_cereales()
+alimento_cereales
 
 Cena<-data.frame(comidas="Cena",
                  kcal= alimento_animal["kcal"] + alimento_fruta["kcal"] + alimento_verdura ["kcal"] + alimento_leguminosa ["kcal"] + alimento_grasas_proteina["kcal"] + alimento_grasas["kcal"] + alimento_azucar ["kcal"],
@@ -1451,6 +1535,137 @@ return(print(comidas_prueba))}
 
 dia_1 <- dia_prueba()
 #para generar un plot con una tabla que incluya todos los datos del dia
+#Desayuno
+1
+Huevo
+212
+1
+Manzana
+200
+1
+Nada
+0
+1
+Frijol
+100
+1
+Crema de cacahuate
+50
+1
+Aceite
+15
+1
+Nada
+0
+1
+Tortilla de maiz
+80
+#Colación 1
+1
+Nada
+0
+2
+Platano
+100
+Fresa
+100
+1
+Nada
+0
+1
+Nada
+0
+1
+Crema de cacahuate
+50
+1
+Nada
+0
+1
+Nada
+0
+1
+Amaranto
+50
+#Comida
+1
+Pollo
+180
+1
+Manzana
+200
+1
+Zanahoria
+75
+1
+Nada
+0
+1
+Almendras
+100
+1
+Aceite
+15
+1
+Nada
+0
+2
+Papa
+75
+Tortilla de maiz
+80
+#Colación 2, no le dio tiempo de comer :(
+1
+Nada
+0
+1
+Nada
+0
+1
+Nada
+0
+1
+Nada
+0
+1
+Nada
+0
+1
+Nada
+0
+1
+Nada
+0
+1
+Nada
+0
+#Cena
+1
+Pollo
+180
+1
+Nada
+0
+1
+Zanahoria
+75
+1
+Nada
+0
+1
+Almendras
+100
+1
+Aceite
+15
+1
+Nada
+0
+2
+Papa
+75
+Tortilla de maiz
+80
 
 #instale estos paquetes para la tabla:
   # install.packages("gtExtras")
@@ -1482,79 +1697,3 @@ head(dia_1) %>%
 head(dia_1) %>%
   gt() %>% 
   gt_theme_espn()
-
-
-#Estaba pensando en dejar el resumen por dia y ya que para que el usuario pueda comparar su progreso, que cada dia descargue la imagen de su resumen
-
-
-
-#### Ejemplos de tablas con base de datos mtcars
-
-mtcars
-
-head(mtcars) %>% 
-  gt() %>% 
-  gt_theme_nytimes() %>% 
-  tab_header(title = "Table styled like the NY Times")
-
-
-gtcars %>%
-  dplyr::select(mfr, model, msrp) %>%
-  dplyr::slice(1:5) %>%
-  gt() %>%
-  tab_header(
-    title = md("Data listing from **gtcars**"),
-    subtitle = md("`gtcars` is an R dataset")
-  )
-
-
-### Ejemplo de comparacion que podriamos usar para que se compare lo que se obtuvo de resumen del d?a, con los valores que debio de obtener de acuerdo a su perfil (establecido en el script de "calculo de calorias")
-
-#install.packages("devtools")
-install.packages("devtools")
-#devtools::install_github("renkun-ken/formattable")
-installed.packages("renkun-ken/formattable")
-#install.packages("formattable")
-install.packages("formattable")
-library(formattable)
-
-df <- data.frame(
-  id = 1:10,
-  name = c("Bob", "Ashley", "James", "David", "Jenny",
-           "Hans", "Leo", "John", "Emily", "Lee"),
-  age = c(28, 27, 30, 28, 29, 29, 27, 27, 31, 30),
-  grade = c("C", "A", "A", "C", "B", "B", "B", "A", "C", "C"),
-  test1_score = c(8.9, 9.5, 9.6, 8.9, 9.1, 9.3, 9.3, 9.9, 8.5, 8.6),
-  test2_score = c(9.1, 9.1, 9.2, 9.1, 8.9, 8.5, 9.2, 9.3, 9.1, 8.8),
-  final_score = c(9, 9.3, 9.4, 9, 9, 8.9, 9.25, 9.6, 8.8, 8.7),
-  registered = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE),
-  stringsAsFactors = FALSE)
-df
-
-formattable(df, list(
-  age = color_tile("white", "orange"),
-  grade = formatter("span", style = x ~ ifelse(x == "A",
-                                               style(color = "green", font.weight = "bold"), NA)),
-  area(col = c(test1_score, test2_score)) ~ normalize_bar("pink", .1),
-  final_score = formatter("span",
-                          style = x ~ style(color = ifelse(rank(-x) <= 3, "green", "gray")),
-                          x ~ sprintf("%.2f (rank: %02d)", x, rank(-x))),
-  registered = formatter("span",
-                         style = x ~ style(color = ifelse(x, "green", "red")),
-                         x ~ icontext(ifelse(x, "ok", "remove"), ifelse(x, "Yes", "No")))
-))
-
-## Comparacion de kcal recomendadas vs consumidas
-ingesta_calorica #estas son las kcal recomendadas
-tabla_kcal_consumidas <- head(dia_1) %>% #asigna la tabla a un objeto
-  gt() %>% 
-  gt_theme_nytimes() %>%
-tabla_kcal_consumidas #se corre para confirmar la tabla
-
-select(tabla_kcal_consumidas, kcal)
-tabla_kcal_consumidas [1,2]
-tabla_kcal_consumidas_1<- as.matrix(tabla_kcal_consumidas)
-tabla_kcal_consumidas_1
-tabla_kcal_consumidas_1[2,2]
-select.list(tabla_kcal_consumidas, kcal)
-sum(tabla_kcal_consumidas[kcal])

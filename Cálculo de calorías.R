@@ -69,7 +69,7 @@ kcal_pyc <- division_calorias_proteinas_y_carbs(ingesta_calorica) #asigna a un o
 ##### gráfico pastel 
 # el paquete necesario debe ser instalado:
 install.packages("plotrix")
-library(plotrix) #se carga el paquete
+ library(plotrix) #se carga el paquete
 #corroborando que sean objetos de clase numerica:
 class(ingesta_calorica) 
 class(kcal_fyv)
